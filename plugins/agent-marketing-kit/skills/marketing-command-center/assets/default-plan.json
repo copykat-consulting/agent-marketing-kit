@@ -1,0 +1,123 @@
+{
+ "items": [
+  {
+   "key": "newsletter",
+   "title": "Monthly email newsletter",
+   "channel": "Email",
+   "qty": 1,
+   "dueDay": 5
+  },
+  {
+   "key": "single-topic-email",
+   "title": "e-Report (single-topic email)",
+   "channel": "Email",
+   "qty": 1,
+   "dueDay": 15
+  },
+  {
+   "key": "listings-email",
+   "title": "Active listings email (all current listings)",
+   "channel": "Email",
+   "qty": 1,
+   "dueDay": 21
+  },
+  {
+   "key": "market-blog",
+   "title": "Market update blog post",
+   "channel": "Blog",
+   "qty": 1,
+   "dueDay": 10
+  },
+  {
+   "key": "community-blog",
+   "title": "Community or lifestyle blog post",
+   "channel": "Blog",
+   "qty": 1,
+   "dueDay": 20
+  },
+  {
+   "key": "market-video",
+   "title": "Market update video",
+   "channel": "Video",
+   "qty": 1,
+   "dueDay": 12
+  },
+  {
+   "key": "tour-video",
+   "title": "Community or lifestyle video (pairs with the blog)",
+   "channel": "Video",
+   "qty": 1,
+   "dueDay": 22
+  },
+  {
+   "key": "reel-market",
+   "title": "Reel cut from the market update video",
+   "channel": "Social media",
+   "qty": 1,
+   "dueDay": 14
+  },
+  {
+   "key": "reel-community",
+   "title": "Reel cut from the community video",
+   "channel": "Social media",
+   "qty": 1,
+   "dueDay": 24
+  },
+  {
+   "key": "broll",
+   "title": "B-roll videos",
+   "channel": "Social media",
+   "qty": 4,
+   "dueDay": 30
+  },
+  {
+   "key": "feed-posts-15",
+   "title": "Feed posts",
+   "channel": "Social media",
+   "qty": 15,
+   "dueDay": 30
+  },
+  {
+   "key": "feed-posts",
+   "title": "Carousel posts",
+   "channel": "Social media",
+   "qty": 4,
+   "dueDay": 30
+  },
+  {
+   "key": "market-graphic",
+   "title": "Market stats graphic",
+   "channel": "Social media",
+   "qty": 1,
+   "dueDay": 12
+  },
+  {
+   "key": "gbp-posts",
+   "title": "Google Business Profile posts",
+   "channel": "Google Business Profile",
+   "qty": 4,
+   "dueDay": 30
+  },
+  {
+   "key": "gbp-reviews",
+   "title": "Reply to new Google reviews",
+   "channel": "Google Business Profile",
+   "qty": 1,
+   "dueDay": 30
+  },
+  {
+   "key": "review-ask",
+   "title": "Ask recent clients for reviews",
+   "channel": "Google Business Profile",
+   "qty": 1,
+   "dueDay": 28
+  },
+  {
+   "key": "postcard",
+   "title": "Direct mail postcard",
+   "channel": "Direct mail",
+   "qty": 1,
+   "dueDay": 15
+  }
+ ]
+}

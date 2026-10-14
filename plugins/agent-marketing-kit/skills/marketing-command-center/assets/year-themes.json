@@ -1,0 +1,86 @@
+{
+ "1": {
+  "theme": "Fresh start",
+  "market": "This year's market forecast",
+  "community": "New year, new neighborhood: area spotlights",
+  "email": "Your home goals checklist for the year",
+  "hooks": "New Year's resolutions"
+ },
+ "2": {
+  "theme": "Love where you live",
+  "market": "Why listing before spring can pay off",
+  "community": "Favorite local date-night spots",
+  "email": "Pre-spring home maintenance",
+  "hooks": "Valentine's Day"
+ },
+ "3": {
+  "theme": "Spring market kickoff",
+  "market": "Spring buyer competition: what to expect",
+  "community": "Parks and trails to explore this spring",
+  "email": "How to prep your home to sell",
+  "hooks": "Daylight saving starts, spring break"
+ },
+ "4": {
+  "theme": "Curb appeal",
+  "market": "Peak-season pricing trends",
+  "community": "Farmers markets and spring events",
+  "email": "Curb appeal on a budget",
+  "hooks": "Tax day, Earth Day"
+ },
+ "5": {
+  "theme": "Moving season",
+  "market": "Mid-spring market check-in",
+  "community": "Graduation and early-summer event guide",
+  "email": "The stress-free moving checklist",
+  "hooks": "Mother's Day, Memorial Day"
+ },
+ "6": {
+  "theme": "Summer living",
+  "market": "Summer market pace",
+  "community": "Pools, splash pads and summer fun",
+  "email": "Keeping your home cool and your bills low",
+  "hooks": "Father's Day, start of summer"
+ },
+ "7": {
+  "theme": "Celebrate local",
+  "market": "Mid-year market review",
+  "community": "Fourth of July events and local favorites",
+  "email": "Sell now or wait? A mid-year gut check",
+  "hooks": "Independence Day"
+ },
+ "8": {
+  "theme": "Back to school",
+  "market": "How school calendars move the market",
+  "community": "Family-friendly neighborhoods spotlight",
+  "email": "Back-to-school home organization",
+  "hooks": "Back to school"
+ },
+ "9": {
+  "theme": "Fall prep",
+  "market": "Fall market preview",
+  "community": "Fall weekend getaways nearby",
+  "email": "Fall home maintenance checklist",
+  "hooks": "Labor Day, first day of fall"
+ },
+ "10": {
+  "theme": "Fall market shift",
+  "market": "What the fall slowdown means for buyers and sellers",
+  "community": "Fall festivals and pumpkin patches nearby",
+  "email": "Should you buy before the holidays?",
+  "hooks": "Halloween, daylight saving ends"
+ },
+ "11": {
+  "theme": "Gratitude and year-end moves",
+  "market": "Inventory and rates heading into winter",
+  "community": "Local businesses we're thankful for",
+  "email": "Year-end money moves for homeowners",
+  "hooks": "Thanksgiving, Small Business Saturday"
+ },
+ "12": {
+  "theme": "Holidays at home",
+  "market": "The year in review by the numbers",
+  "community": "Best holiday light neighborhoods",
+  "email": "Hosting and home safety for the holidays",
+  "hooks": "Holidays, New Year's Eve"
+ }
+}
