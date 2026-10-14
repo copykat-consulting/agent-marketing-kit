@@ -21,7 +21,8 @@ If skills don't run, check that code execution is on under **Settings → Capabi
 | **Brand Brain Builder** | Walks you through building your Brand Brain: who you serve, your voice, proof points, content rules, CTA and compliance, so everything Claude writes sounds like you. | "Help me build my Brand Brain" |
 | **Real Estate Newsletter Setup** | Builds your monthly email newsletter as HTML ready to paste into Mailchimp or Constant Contact: hero, video spotlight, articles and a listings grid in your brand. | "Set up my monthly newsletter" |
 | **Market Report Blog** | Turns your local association or MLS monthly stats into a branded market report blog post, ready to paste into your website. | "Write this month's market report" (paste or upload the stats) |
+| **Brand Voice Editor** | Runs a draft (your monthly community or lifestyle blog, market report, newsletter or email) through your Brand Brain so it sounds like you, keeping every fact and stat intact. | "Run this blog through my Brand Brain" (paste or upload the draft) |
 
-**Tip:** start with the Brand Brain. The other skills use it to match your voice.
+**Tip:** start with the Brand Brain. The Brand Voice Editor and the other writing skills use it to match your voice.
 
 For live social numbers in the Command Center, first connect your Instagram, Facebook, LinkedIn and Google Business Profile in Metricool, then connect **Metricool Social Media Management** in Claude under Settings → Connectors.
