@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>[CLIENT_NAME] — [MONTH] Newsletter</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<![endif]-->
+<style>
+  /*
+    DESIGN TOKENS — replace every bracketed value below for a new client,
+    then find-and-replace the same tokens everywhere they appear in inline
+    styles throughout the body (email clients largely don't support CSS
+    custom properties/var(), so these can't be true CSS variables — this
+    block just documents the palette in one place; the actual color values
+    still have to be set inline on each element).
+
+    [PRIMARY_COLOR]        — dominant text/wordmark color (often near-black)
+    [BACKGROUND_COLOR]     — dominant background (often white)
+    [LEAD_ACCENT_COLOR]    — CTAs, buttons, links, the color that carries
+                              the most brand weight after primary/background
+    [MINOR_ACCENT_COLOR]   — small accents ONLY (hairline rules, status
+                              tags) — never a button fill or block background
+                              unless the client's brand explicitly treats it
+                              as a co-equal color
+    [SECONDARY_TEXT_COLOR] — muted/secondary text (captions, specs)
+    [SECTION_ALT_BG_COLOR] — outer page background / alternating section bg
+    [BODY_TEXT_COLOR]      — main paragraph text color
+    [HEADLINE_FONT_STACK]  — e.g. 'Times New Roman', Times, Georgia, serif
+                              or a Google Font + safe fallbacks
+    [BODY_FONT_STACK]      — e.g. 'Jost', 'Helvetica Neue', Arial, sans-serif
+    [GOOGLE_FONT_IMPORT_URL] — only needed if using a non-system headline
+                              or body font; delete the @import line entirely
+                              if both fonts are system fonts (safest for
+                              deliverability/rendering — see SKILL.md)
+  */
+  @import url('[GOOGLE_FONT_IMPORT_URL]');
+
+  body, table, td, p, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
+  body { margin: 0; padding: 0; width: 100% !important; background-color: [SECTION_ALT_BG_COLOR]; }
+
+  .headline { font-family: [HEADLINE_FONT_STACK]; }
+  .body-font { font-family: [BODY_FONT_STACK]; }
+
+  a.btn { text-decoration: none; }
+
+  @media only screen and (max-width: 600px) {
+    .email-container { width: 100% !important; }
+    .stack { display: block !important; width: 100% !important; }
+    .mobile-pad { padding-left: 24px !important; padding-right: 24px !important; }
+    .mobile-center { text-align: center !important; }
+    .listing-cell { width: 100% !important; display: block !important; padding-bottom: 16px !important; }
+    .h1-size { font-size: 30px !important; line-height: 36px !important; }
+    .h2-size { font-size: 24px !important; line-height: 30px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:[SECTION_ALT_BG_COLOR];">
+
+  <!-- Preheader (hidden preview text) -->
+  <div style="display:none; font-size:1px; color:[SECTION_ALT_BG_COLOR]; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden;">
+    [PREHEADER TEXT — one line, distinct from the hero's opening sentence so it doesn't read redundant once opened]
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:[SECTION_ALT_BG_COLOR];">
+    <tr>
+      <td align="center" style="padding: 32px 12px;">
+
+        <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:[BACKGROUND_COLOR];">
+
+          <!-- ============ HEADER (optional — delete this row if the client builds their own header/footer in their ESP) ============ -->
+          <tr>
+            <td align="center" style="background-color:[PRIMARY_COLOR]; padding: 30px 20px 26px 20px;">
+              <!-- IMAGE: client logo, reversed/white version if header bg is dark -->
+              <img src="[LOGO_IMAGE_URL]" width="220" alt="[CLIENT_NAME]" style="display:block; margin: 0 auto 10px auto;">
+              <div class="body-font" style="color:[BACKGROUND_COLOR]; font-size:10px; letter-spacing:3px; text-transform:uppercase;">[BROKERAGE_LINE — e.g. "At [Brokerage Name]"]</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:[LEAD_ACCENT_COLOR]; height:4px; line-height:4px; font-size:1px;">&nbsp;</td>
+          </tr>
+
+          <!-- ============ HERO HEADLINE ============ -->
+          <!--
+            Video-spotlight placement note: this skill supports the video
+            block either here (right after the hero sign-off, above the
+            article features) or lower, between the last article and the
+            listings grid. Ask the client which they prefer. The block itself is identical either way;
+            only its position in the file changes. It's written below in
+            the "above articles" position; see SKILL.md for how to relocate
+            it if the client wants it lower instead.
+          -->
+          <tr>
+            <td align="center" class="mobile-pad" style="padding: 40px 46px 6px 46px;">
+              <h1 class="headline h1-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:34px; line-height:40px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase;">[HERO HEADLINE — seasonal or topical hook]</h1>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 10px 0 0 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td style="border-top:1px solid [MINOR_ACCENT_COLOR]; width:56px; font-size:1px; line-height:1px;">&nbsp;</td>
+              </tr></table>
+            </td>
+          </tr>
+          <tr>
+            <td class="body-font mobile-pad" style="padding: 22px 46px 8px 46px; color:[BODY_TEXT_COLOR]; font-size:16px; line-height:26px;">
+              [OPENING PARAGRAPH — warm, seasonal or topical framing in the client's voice; see references/brand-quick-reference.md for tone]
+            </td>
+          </tr>
+          <tr>
+            <td class="body-font mobile-pad" style="padding: 0 46px 8px 46px; color:[BODY_TEXT_COLOR]; font-size:16px; line-height:26px;">
+              [SECOND PARAGRAPH — a one-line preview of what's in this issue]
+            </td>
+          </tr>
+          <tr>
+            <td class="body-font mobile-pad" style="padding: 6px 46px 30px 46px; color:[BODY_TEXT_COLOR]; font-size:16px; line-height:26px; font-style:italic;">
+              — [SIGNOFF NAME/TEAM]
+              <br>
+              <a href="[CONTACT_PAGE_URL]" style="color:[LEAD_ACCENT_COLOR]; font-style:normal;">[CTA TEXT — e.g. "Reach out to us"]</a> [CTA CONTEXT SENTENCE]
+            </td>
+          </tr>
+
+          <!-- ============ VIDEO SPOTLIGHT (optional; see placement note above) ============ -->
+          <tr>
+            <td style="background-color:[PRIMARY_COLOR]; padding: 44px 20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="padding: 0 26px 20px 26px;">
+                    <div class="body-font" style="color:[MINOR_ACCENT_COLOR]; font-size:11px; letter-spacing:3px; text-transform:uppercase; padding-bottom:10px;">[EYEBROW — e.g. "On Social This Month"]</div>
+                    <h2 class="headline h2-size" style="margin:0; color:[BACKGROUND_COLOR]; font-size:24px; line-height:30px; font-weight:500;">[VIDEO TITLE]</h2>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding: 0 0 22px 0;">
+                    <!-- IMAGE: still frame from the video, with a play-button overlay baked into the image itself -->
+                    <a href="[VIDEO_URL]" style="display:block;">
+                      <img src="[VIDEO_THUMBNAIL_URL]" width="500" alt="[VIDEO TITLE]" style="width:100%; max-width:500px;">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" class="body-font" style="padding: 0 40px 24px 40px; color:[SECTION_ALT_BG_COLOR]; font-size:15px; line-height:24px;">
+                    [ONE OR TWO LINES on what the video covers]
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                      <td align="center" style="border:1px solid [BACKGROUND_COLOR]; border-radius:2px;">
+                        <a href="[VIDEO_URL]" class="btn body-font" style="display:inline-block; padding:12px 32px; color:[BACKGROUND_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Watch Now</a>
+                      </td>
+                    </tr></table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ============ SECTION DIVIDER: WHAT'S NEW ============ -->
+          <tr>
+            <td align="center" style="padding: 6px 20px 28px 20px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                <td style="border-top:1px solid [MINOR_ACCENT_COLOR]; font-size:1px; line-height:1px; opacity:0.4;">&nbsp;</td>
+              </tr></table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 20px 26px 20px;">
+              <div class="headline" style="color:[PRIMARY_COLOR]; font-size:30px; font-style:italic; letter-spacing:1.5px; text-transform:uppercase;">What's New This Month</div>
+            </td>
+          </tr>
+
+          <!-- ============ ARTICLE 1: MARKET UPDATE ============ -->
+          <!-- If this client has a recurring, auto-regenerating market report post (like a monthly market report from the local REALTOR association), this block should always be swapped wholesale each month — headline, teaser, and href — never reused from the prior month. -->
+          <tr>
+            <td style="padding: 0 20px;">
+              <!-- IMAGE: 560x260 -->
+              <img src="[ARTICLE_1_IMAGE_URL]" width="560" alt="[ARTICLE_1_TITLE]" style="width:100%; max-width:560px;">
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="mobile-pad" style="padding: 22px 40px 4px 40px;">
+              <div class="body-font" style="color:[LEAD_ACCENT_COLOR]; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; padding-bottom:8px;">[ARTICLE_1_CATEGORY — e.g. "Market Update"]</div>
+              <h2 class="headline h2-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:26px; line-height:32px; font-weight:500;">[ARTICLE_1_TITLE]</h2>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="body-font mobile-pad" style="padding: 14px 46px 22px 46px; color:[BODY_TEXT_COLOR]; font-size:15px; line-height:24px;">
+              [ARTICLE_1_TEASER — 1-2 sentences]
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 0 40px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" style="background-color:[LEAD_ACCENT_COLOR]; border-radius:2px;">
+                  <a href="[ARTICLE_1_URL]" class="btn body-font" style="display:inline-block; padding:13px 34px; color:[BACKGROUND_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">[ARTICLE_1_CTA_TEXT]</a>
+                </td>
+              </tr></table>
+            </td>
+          </tr>
+
+          <tr><td style="padding: 0 46px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid [MINOR_ACCENT_COLOR]; font-size:1px; line-height:1px; opacity:0.4;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- ============ ARTICLE 2 ============ -->
+          <tr>
+            <td style="padding: 40px 20px 0 20px;">
+              <img src="[ARTICLE_2_IMAGE_URL]" width="560" alt="[ARTICLE_2_TITLE]" style="width:100%; max-width:560px;">
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="mobile-pad" style="padding: 22px 40px 4px 40px;">
+              <div class="body-font" style="color:[LEAD_ACCENT_COLOR]; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; padding-bottom:8px;">[ARTICLE_2_CATEGORY]</div>
+              <h2 class="headline h2-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:26px; line-height:32px; font-weight:500;">[ARTICLE_2_TITLE]</h2>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="body-font mobile-pad" style="padding: 14px 46px 22px 46px; color:[BODY_TEXT_COLOR]; font-size:15px; line-height:24px;">
+              [ARTICLE_2_TEASER]
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 0 40px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" style="background-color:[LEAD_ACCENT_COLOR]; border-radius:2px;">
+                  <a href="[ARTICLE_2_URL]" class="btn body-font" style="display:inline-block; padding:13px 34px; color:[BACKGROUND_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">[ARTICLE_2_CTA_TEXT]</a>
+                </td>
+              </tr></table>
+            </td>
+          </tr>
+
+          <tr><td style="padding: 0 46px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid [MINOR_ACCENT_COLOR]; font-size:1px; line-height:1px; opacity:0.4;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- ============ ARTICLE 3 ============ -->
+          <tr>
+            <td style="padding: 40px 20px 0 20px;">
+              <img src="[ARTICLE_3_IMAGE_URL]" width="560" alt="[ARTICLE_3_TITLE]" style="width:100%; max-width:560px;">
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="mobile-pad" style="padding: 22px 40px 4px 40px;">
+              <div class="body-font" style="color:[LEAD_ACCENT_COLOR]; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; padding-bottom:8px;">[ARTICLE_3_CATEGORY]</div>
+              <h2 class="headline h2-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:26px; line-height:32px; font-weight:500;">[ARTICLE_3_TITLE]</h2>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="body-font mobile-pad" style="padding: 14px 46px 22px 46px; color:[BODY_TEXT_COLOR]; font-size:15px; line-height:24px;">
+              [ARTICLE_3_TEASER]
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 0 40px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" style="background-color:[LEAD_ACCENT_COLOR]; border-radius:2px;">
+                  <a href="[ARTICLE_3_URL]" class="btn body-font" style="display:inline-block; padding:13px 34px; color:[BACKGROUND_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">[ARTICLE_3_CTA_TEXT]</a>
+                </td>
+              </tr></table>
+            </td>
+          </tr>
+
+          <tr><td style="padding: 0 46px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid [MINOR_ACCENT_COLOR]; font-size:1px; line-height:1px; opacity:0.4;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- ============ ARTICLE 4 ============ -->
+          <tr>
+            <td style="padding: 40px 20px 0 20px;">
+              <img src="[ARTICLE_4_IMAGE_URL]" width="560" alt="[ARTICLE_4_TITLE]" style="width:100%; max-width:560px;">
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="mobile-pad" style="padding: 22px 40px 4px 40px;">
+              <div class="body-font" style="color:[LEAD_ACCENT_COLOR]; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; padding-bottom:8px;">[ARTICLE_4_CATEGORY]</div>
+              <h2 class="headline h2-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:26px; line-height:32px; font-weight:500;">[ARTICLE_4_TITLE]</h2>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="body-font mobile-pad" style="padding: 14px 46px 22px 46px; color:[BODY_TEXT_COLOR]; font-size:15px; line-height:24px;">
+              [ARTICLE_4_TEASER]
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 0 40px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" style="background-color:[LEAD_ACCENT_COLOR]; border-radius:2px;">
+                  <a href="[ARTICLE_4_URL]" class="btn body-font" style="display:inline-block; padding:13px 34px; color:[BACKGROUND_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">[ARTICLE_4_CTA_TEXT]</a>
+                </td>
+              </tr></table>
+            </td>
+          </tr>
+
+          <!-- ============ LISTINGS ============ -->
+          <tr>
+            <td style="background-color:[LEAD_ACCENT_COLOR]; padding: 22px 20px;">
+              <div class="headline" align="center" style="color:[BACKGROUND_COLOR]; font-size:32px; font-style:italic; letter-spacing:1.5px; text-align:center; text-transform:uppercase;">Our Listings</div>
+              <div class="body-font" align="center" style="color:[SECTION_ALT_BG_COLOR]; font-size:11px; letter-spacing:2px; text-transform:uppercase; text-align:center; padding-top:6px;">
+                <a href="[SHOWING_CONTACT_LINK — mailto or contact page]" style="color:[SECTION_ALT_BG_COLOR]; text-decoration:underline;">Contact Us For A Showing</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 30px 20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <!-- Listing 1 -->
+                  <td class="stack listing-cell" width="50%" valign="top" style="padding: 0 10px 24px 0;">
+                    <a href="[LISTING_1_URL]"><img src="[LISTING_1_IMAGE_URL]" width="100%" alt="[LISTING_1_ADDRESS]" style="width:100%;"></a>
+                    <div class="body-font" style="padding-top:10px; color:[STATUS COLOR — LEAD_ACCENT_COLOR for For Sale/For Rent, MINOR_ACCENT_COLOR for Pending]; font-size:10px; letter-spacing:1.5px; font-weight:600;">[STATUS — FOR SALE / PENDING / FOR RENT]</div>
+                    <div class="body-font" style="padding-top:2px; color:[PRIMARY_COLOR]; font-size:13px; letter-spacing:0.5px; text-transform:uppercase;">
+                      <a href="[LISTING_1_URL]" style="color:[PRIMARY_COLOR]; text-decoration:none;">[LISTING_1_ADDRESS]</a>
+                    </div>
+                    <div class="body-font" style="padding-top:4px; color:[LEAD_ACCENT_COLOR]; font-size:14px; font-weight:600;">[LISTING_1_PRICE]</div>
+                    <div class="body-font" style="padding-top:2px; color:[SECONDARY_TEXT_COLOR]; font-size:12px;">[LISTING_1_BEDS] BD | [LISTING_1_BATHS] BA | [LISTING_1_SQFT] SF</div>
+                  </td>
+                  <!-- Listing 2 -->
+                  <td class="stack listing-cell" width="50%" valign="top" style="padding: 0 0 24px 10px;">
+                    <a href="[LISTING_2_URL]"><img src="[LISTING_2_IMAGE_URL]" width="100%" alt="[LISTING_2_ADDRESS]" style="width:100%;"></a>
+                    <div class="body-font" style="padding-top:10px; color:[STATUS COLOR]; font-size:10px; letter-spacing:1.5px; font-weight:600;">[STATUS]</div>
+                    <div class="body-font" style="padding-top:2px; color:[PRIMARY_COLOR]; font-size:13px; letter-spacing:0.5px; text-transform:uppercase;">
+                      <a href="[LISTING_2_URL]" style="color:[PRIMARY_COLOR]; text-decoration:none;">[LISTING_2_ADDRESS]</a>
+                    </div>
+                    <div class="body-font" style="padding-top:4px; color:[LEAD_ACCENT_COLOR]; font-size:14px; font-weight:600;">[LISTING_2_PRICE]</div>
+                    <div class="body-font" style="padding-top:2px; color:[SECONDARY_TEXT_COLOR]; font-size:12px;">[LISTING_2_BEDS] BD | [LISTING_2_BATHS] BA | [LISTING_2_SQFT] SF</div>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- Listing 3 -->
+                  <td class="stack listing-cell" width="50%" valign="top" style="padding: 0 10px 0 0;">
+                    <a href="[LISTING_3_URL]"><img src="[LISTING_3_IMAGE_URL]" width="100%" alt="[LISTING_3_ADDRESS]" style="width:100%;"></a>
+                    <div class="body-font" style="padding-top:10px; color:[STATUS COLOR]; font-size:10px; letter-spacing:1.5px; font-weight:600;">[STATUS]</div>
+                    <div class="body-font" style="padding-top:2px; color:[PRIMARY_COLOR]; font-size:13px; letter-spacing:0.5px; text-transform:uppercase;">
+                      <a href="[LISTING_3_URL]" style="color:[PRIMARY_COLOR]; text-decoration:none;">[LISTING_3_ADDRESS]</a>
+                    </div>
+                    <div class="body-font" style="padding-top:4px; color:[LEAD_ACCENT_COLOR]; font-size:14px; font-weight:600;">[LISTING_3_PRICE]</div>
+                    <div class="body-font" style="padding-top:2px; color:[SECONDARY_TEXT_COLOR]; font-size:12px;">[LISTING_3_BEDS] BD | [LISTING_3_BATHS] BA | [LISTING_3_SQFT] SF</div>
+                  </td>
+                  <!-- Listing 4 -->
+                  <td class="stack listing-cell" width="50%" valign="top" style="padding: 0 0 0 10px;">
+                    <a href="[LISTING_4_URL]"><img src="[LISTING_4_IMAGE_URL]" width="100%" alt="[LISTING_4_ADDRESS]" style="width:100%;"></a>
+                    <div class="body-font" style="padding-top:10px; color:[STATUS COLOR]; font-size:10px; letter-spacing:1.5px; font-weight:600;">[STATUS]</div>
+                    <div class="body-font" style="padding-top:2px; color:[PRIMARY_COLOR]; font-size:13px; letter-spacing:0.5px; text-transform:uppercase;">
+                      <a href="[LISTING_4_URL]" style="color:[PRIMARY_COLOR]; text-decoration:none;">[LISTING_4_ADDRESS]</a>
+                    </div>
+                    <div class="body-font" style="padding-top:4px; color:[LEAD_ACCENT_COLOR]; font-size:14px; font-weight:600;">[LISTING_4_PRICE]</div>
+                    <div class="body-font" style="padding-top:2px; color:[SECONDARY_TEXT_COLOR]; font-size:12px;">[LISTING_4_BEDS] BD | [LISTING_4_BATHS] BA | [LISTING_4_SQFT] SF</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 0 40px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" style="border:1px solid [PRIMARY_COLOR]; border-radius:2px;">
+                  <a href="[ALL_LISTINGS_PAGE_URL]" class="btn body-font" style="display:inline-block; padding:13px 34px; color:[PRIMARY_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">View All Listings</a>
+                </td>
+              </tr></table>
+            </td>
+          </tr>
+
+          <!-- ============ FOOTER (optional — delete if the client builds their own in their ESP) ============ -->
+          <tr>
+            <td style="background-color:[PRIMARY_COLOR]; padding: 40px 20px 26px 20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td class="stack" width="150" valign="top" style="padding-bottom:20px;">
+                    <!-- IMAGE: team/agent photo, 150x150 -->
+                    <img src="[TEAM_PHOTO_URL]" width="150" alt="[CLIENT_NAME]" style="width:150px; max-width:150px;">
+                  </td>
+                  <td class="stack" valign="top" style="padding-left: 20px;">
+                    <!-- IMAGE: logo, reversed/white version, small -->
+                    <img src="[LOGO_IMAGE_URL]" width="170" alt="[CLIENT_NAME]" style="padding-bottom:10px;">
+                    <div class="body-font" style="color:[SECTION_ALT_BG_COLOR]; font-size:13px; line-height:20px; font-style:italic;">[TAGLINE]</div>
+                    <div class="body-font" style="color:[SECONDARY_TEXT_COLOR]; font-size:12px; line-height:20px; padding-top:10px;">[PHONE] | [WEBSITE_DOMAIN]</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:[PRIMARY_COLOR]; padding: 0 20px 30px 20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr><td style="border-top:1px solid [MINOR_ACCENT_COLOR]; font-size:1px; line-height:1px; opacity:0.3;">&nbsp;</td></tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="background-color:[PRIMARY_COLOR]; padding: 0 20px 20px 20px;">
+              <!-- Social icons — include only the platforms this client is actually active on -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td style="padding: 0 8px;"><a href="[INSTAGRAM_URL]"><img src="[IG_ICON_URL]" width="28" alt="Instagram"></a></td>
+                <td style="padding: 0 8px;"><a href="[FACEBOOK_URL]"><img src="[FB_ICON_URL]" width="28" alt="Facebook"></a></td>
+                <td style="padding: 0 8px;"><a href="[LINKEDIN_URL]"><img src="[LI_ICON_URL]" width="28" alt="LinkedIn"></a></td>
+                <td style="padding: 0 8px;"><a href="[YOUTUBE_URL]"><img src="[YT_ICON_URL]" width="28" alt="YouTube"></a></td>
+              </tr></table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="body-font" style="background-color:[PRIMARY_COLOR]; padding: 4px 30px 28px 30px; color:[SECONDARY_TEXT_COLOR]; font-size:11px; line-height:18px;">
+              [BROKERAGE_NAME] &nbsp;|&nbsp; [OFFICE_ADDRESS]<br>
+              [FAIR_HOUSING_STATEMENT — confirm exact required wording with the client/brokerage; requirements vary by state and brokerage]
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="body-font" style="background-color:[SECTION_ALT_BG_COLOR]; padding: 18px 30px; color:[SECONDARY_TEXT_COLOR]; font-size:11px; line-height:18px;">
+              Copyright © [YEAR] [CLIENT_NAME]. All rights reserved.<br>
+              <a href="[PREFERENCES_LINK]" style="color:[SECONDARY_TEXT_COLOR];">Update your preferences</a> &nbsp;|&nbsp; <a href="[UNSUBSCRIBE_LINK]" style="color:[SECONDARY_TEXT_COLOR];">Unsubscribe</a>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /email-container -->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

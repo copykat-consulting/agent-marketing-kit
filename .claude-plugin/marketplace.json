@@ -1,12 +1,16 @@
 {
   "name": "copykat-agent-marketing",
-  "owner": { "name": "CopyKat Consulting" },
-  "metadata": { "description": "Marketing skills for real estate agents from CopyKat Consulting." },
+  "owner": {
+    "name": "CopyKat Consulting"
+  },
+  "metadata": {
+    "description": "Marketing skills for real estate agents from CopyKat Consulting."
+  },
   "plugins": [
     {
       "name": "agent-marketing-kit",
       "source": "./plugins/agent-marketing-kit",
-      "description": "Marketing tools for real estate agents: the Marketing Command Center dashboard and more."
+      "description": "Marketing tools for real estate agents: Marketing Command Center, Brand Brain Builder, Newsletter Setup and Market Report Blog."
     }
   ]
 }

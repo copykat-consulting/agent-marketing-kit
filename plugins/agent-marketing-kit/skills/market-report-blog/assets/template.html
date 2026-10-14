@@ -1,0 +1,194 @@
+<!--
+============================================================
+  MONTHLY MARKET REPORT BLOG — MASTER TEMPLATE
+============================================================
+  1. Edit the brand variables at the top of the style block.
+  2. Replace every [BRACKETED] placeholder with real data and copy.
+  3. Repeat the sub-market block once per area the agent covers.
+  4. Put real, hosted photo URLs into the image boxes, or delete
+     the boxes. Never leave a placeholder box in a published post.
+  All CSS is scoped under the .mr wrapper so it can't clash with the
+  website's own styles when pasted into a custom HTML / code block.
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[MONTH] [YEAR] Market Update: [AGENT COVERAGE AREA] | [AGENT/TEAM NAME]</title>
+
+<!-- Swap in the agent's brand fonts here if different from Playfair/Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.mr *,.mr *::before,.mr *::after{box-sizing:border-box;margin:0;padding:0}
+/* ============================================================
+   BRAND VARIABLES — edit these for the agent
+   ============================================================ */
+.mr{
+  --orange:#2a6f97;        /* [AGENT PRIMARY ACCENT COLOR] (variable name kept for simplicity) */
+  --orange-dark:#1f5576;   /* darker shade of accent, for hover/depth */
+  --black:#111111;         /* [AGENT DARK/HEADER COLOR — often near-black or a brand navy] */
+  --neutral-900:#1a1a1a;
+  --neutral-700:#3d3d3d;
+  --neutral-500:#737373;
+  --neutral-200:#e0ddd8;
+  --neutral-100:#f0ede8;
+  --neutral-50:#faf9f7;    /* page background */
+  --white:#ffffff;
+  --up:#2a7a3b;            /* keep consistent across clients — green = growth */
+  --down:#c0392b;          /* keep consistent across clients — red = decline */
+  --flat:#6b7280;          /* keep consistent across clients — gray = flat/neutral */
+}
+.mr{font-family:'Inter',sans-serif;background:var(--neutral-50);color:var(--neutral-900);line-height:1.7;font-size:17px}
+/* ---------- KPI bar ---------- */
+.mr .kpi-bar{background:var(--black);border-bottom:3px solid var(--orange)}
+.mr .kpi-bar-inner{max-width:720px;margin:0 auto;padding:0 24px}
+.mr .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08)}
+.mr .kpi{background:rgba(255,255,255,.04);padding:18px 16px;text-align:center}
+.mr .kpi .val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--orange);line-height:1;display:block;margin-bottom:4px}
+.mr .kpi .lbl{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;font-weight:500;line-height:1.4}
+.mr .wrap{max-width:720px;margin:0 auto;padding:64px 24px 80px}
+/* ---------- Image placeholder ---------- */
+.mr .img-slot{width:100%;min-height:240px;background:var(--neutral-100);border:1.5px dashed var(--orange);border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin:32px 0;padding:24px;overflow:hidden}
+.mr .img-slot .ico{font-size:28px;opacity:.35}
+.mr .img-slot p{font-size:12px;font-weight:600;color:var(--neutral-500);text-align:center;text-transform:uppercase;letter-spacing:.06em;margin:0}
+.mr .img-slot img{width:100%;height:100%;min-height:240px;object-fit:cover;display:block;border-radius:3px}
+.mr .img-slot:has(img){border:none;padding:0;background:none}
+/* ---------- Typography ---------- */
+.mr h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,26px);font-weight:600;color:var(--black);margin:52px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--orange);line-height:1.25}
+.mr p{margin-bottom:22px;font-weight:300;color:var(--neutral-700);font-size:17px}
+/* ---------- Community section headers ---------- */
+.mr .community-head{display:flex;align-items:center;gap:12px;margin:48px 0 4px}
+.mr .community-head h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--black)}
+.mr .tag{background:var(--orange);color:var(--white);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.mr .tag.neutral{background:var(--neutral-700)}
+.mr .tag.muted{background:var(--neutral-200);color:var(--neutral-700)}
+/* ---------- Stats table ---------- */
+.mr .mtable{width:100%;border-collapse:collapse;margin:16px 0 28px;border-radius:4px;overflow:hidden;box-shadow:0 1px 10px rgba(0,0,0,.06);font-size:14px}
+.mr .mtable thead tr{background:var(--black)}
+.mr .mtable thead th{padding:12px 15px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-align:left}
+.mr .mtable thead th:not(:first-child){text-align:center}
+.mr .mtable tbody tr{border-bottom:1px solid var(--neutral-200)}
+.mr .mtable tbody tr:last-child{border-bottom:none}
+.mr .mtable tbody tr:nth-child(even) td{background:#faf8f5}
+.mr .mtable tbody tr:nth-child(odd) td{background:var(--white)}
+.mr .mtable td{padding:11px 15px;color:var(--neutral-700)}
+.mr .mtable td:not(:first-child){text-align:center;font-weight:500}
+.mr .mtable td:first-child{font-weight:600;color:var(--neutral-900)}
+.mr .up{color:var(--up)!important;font-weight:700!important}
+.mr .dn{color:var(--down)!important;font-weight:700!important}
+.mr .fl{color:var(--flat)!important;font-weight:600!important}
+/* ---------- Callout boxes ---------- */
+.mr .insight{background:var(--white);border-left:3px solid var(--orange);padding:18px 22px;margin:16px 0 24px;border-radius:0 3px 3px 0;box-shadow:inset 0 0 0 1px var(--neutral-200)}
+.mr .insight p{margin:0;font-size:15px;font-weight:400;color:var(--neutral-900)}
+.mr .insight p strong{color:var(--orange)}
+.mr .pull{border-left:3px solid var(--orange);padding:22px 26px;background:var(--white);margin:36px 0;border-radius:0 3px 3px 0;box-shadow:inset 0 0 0 1px var(--neutral-200)}
+.mr .pull p{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--black);margin:0;line-height:1.5;font-weight:400}
+.mr .source{margin-top:40px;padding:14px 18px;background:var(--neutral-100);border-radius:3px;font-size:12px;color:var(--neutral-500);text-align:center;letter-spacing:.03em}
+/* ---------- CTA ---------- */
+.mr .cta{background:var(--black);border-radius:4px;padding:52px 44px;margin-top:64px;text-align:center;border-top:3px solid var(--orange)}
+.mr .cta h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--white);margin-bottom:14px;font-weight:600}
+.mr .cta p{color:rgba(255,255,255,.6);font-size:16px;margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;font-weight:300}
+.mr .cta-btn{display:inline-block;background:var(--orange);color:var(--white);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:15px 34px;border-radius:3px;text-decoration:none}
+.mr .cta-sub{margin-top:18px;font-size:13px;color:rgba(255,255,255,.4)}
+.mr .cta-sub a{color:var(--orange);text-decoration:none}
+@media(max-width:600px){
+.mr .kpi-grid{grid-template-columns:1fr 1fr}
+.mr .mtable{font-size:13px}
+.mr .mtable td,.mr .mtable th{padding:9px 10px}
+.mr .cta{padding:36px 22px}
+}
+/* Unique in-page headline (different from the blog post's own title field) */
+.mr h1.mr-h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,36px);font-weight:600;color:var(--black);line-height:1.2;margin:0 0 24px}
+/* Website builders often override centering and margins on buttons; this keeps the CTA centered */
+.mr .cta-btn-wrap{display:flex!important;justify-content:center!important;margin:0 0 6px!important}
+</style>
+</head>
+<body>
+<div class="mr">
+
+<!-- ============================================================
+     KPI BAR — pick the 4 most compelling regional stats for
+     the month (biggest mover, headline price, DOM, one standout
+     sub-market number). These should change every month.
+     ============================================================ -->
+<div class="kpi-bar">
+  <div class="kpi-bar-inner">
+    <div class="kpi-grid">
+      <div class="kpi"><span class="val">[STAT 1]</span><span class="lbl">[LABEL 1 — e.g. Regional sales year over year]</span></div>
+      <div class="kpi"><span class="val">[STAT 2]</span><span class="lbl">[LABEL 2 — e.g. Regional median sold price]</span></div>
+      <div class="kpi"><span class="val">[STAT 3]</span><span class="lbl">[LABEL 3 — e.g. Regional days on market]</span></div>
+      <div class="kpi"><span class="val">[STAT 4]</span><span class="lbl">[LABEL 4 — e.g. Standout sub-market growth]</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <h1 class="mr-h1">[UNIQUE HEADLINE — area + this month's trend + Month Year, different from the blog post title]</h1>
+
+  <div class="img-slot"><span class="ico">📷</span><p>Add photo — [AGENT COVERAGE AREA] hero image</p></div>
+
+  <!-- INTRO — keep this conversational, first-person "we/our", agent's established voice -->
+  <p>Let's take a look at what happened in the [MONTH] [YEAR] housing market across [AGENT COVERAGE AREA]. Every month, [LOCAL REALTOR ASSOCIATION NAME] releases fresh numbers on sales, pricing, and inventory across [LIST SUB-MARKETS] — and this month's release gave us [a lot to unpack / a clear read on where things stand]. If you call [AGENT COVERAGE AREA] home, or hope to soon, here's your insider look at how our local housing market is evolving.</p>
+
+  <h2>The Big Picture: [REGION NAME]</h2>
+  <table class="mtable">
+    <thead><tr><th>Metric</th><th>[MONTH] [PRIOR YEAR]</th><th>[MONTH] [CURRENT YEAR]</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Total Sales</td><td>[N]</td><td>[N]</td><td class="[up/dn/fl]">[+/-X%]</td></tr>
+      <tr><td>New Listings</td><td>[N]</td><td>[N]</td><td class="[up/dn/fl]">[+/-X%]</td></tr>
+      <tr><td>Median Sold Price</td><td>[$N]</td><td>[$N]</td><td class="[up/dn/fl]">[+/-X%]</td></tr>
+      <tr><td>Median Days on Market</td><td>[N] days</td><td>[N] days</td><td class="[up/dn/fl]">[+/-N days]</td></tr>
+      <tr><td>Months' Supply of Inventory</td><td>[N]</td><td>[N]</td><td class="[up/dn/fl]">[+/-X%]</td></tr>
+    </tbody>
+  </table>
+
+  <p>[1-2 sentence plain-English summary of the regional table above.]</p>
+
+  <div class="pull"><p>"[One-sentence pull quote capturing the month's big theme — e.g. divergence between sub-markets, a notable shift, a rate-driven story.]"</p></div>
+
+  <!-- ============================================================
+       REPEAT THIS BLOCK FOR EACH SUB-MARKET / NEIGHBORHOOD /
+       CITY the client covers. Add or remove blocks as needed —
+       this agent's template used 4, yours may need more or fewer.
+       ============================================================ -->
+
+  <div class="img-slot"><span class="ico">📷</span><p>Add photo — [SUB-MARKET 1 NAME]</p></div>
+
+  <div class="community-head">
+    <h3>[SUB-MARKET 1 NAME]</h3><span class="tag [tag/neutral/muted — pick based on the story: tag=orange/standout, neutral=dark gray/watch, muted=light gray/soft]">[SHORT TAG — e.g. "Strong Momentum", "Cooling Off", "Highest Growth"]</span>
+  </div>
+  <table class="mtable">
+    <thead><tr><th>Metric</th><th>[MONTH] [PRIOR YEAR]</th><th>[MONTH] [CURRENT YEAR]</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Total Sales</td><td>[N]</td><td>[N]</td><td class="[up/dn/fl]">[+/-X%]</td></tr>
+      <tr><td>New Listings</td><td>[N]</td><td>[N]</td><td class="[up/dn/fl]">[+/-X%]</td></tr>
+      <tr><td>Median Sold Price</td><td>[$N]</td><td>[$N]</td><td class="[up/dn/fl]">[+/-X%]</td></tr>
+      <tr><td>Median Days on Market</td><td>[N] days</td><td>[N] days</td><td class="[up/dn/fl]">[+/-N days]</td></tr>
+    </tbody>
+  </table>
+  <p>[2-3 sentence narrative on what happened in this sub-market and why it matters.]</p>
+  <div class="insight"><p><strong>For buyers:</strong> [Actionable takeaway.]</p></div>
+  <div class="insight"><p><strong>For sellers:</strong> [Actionable takeaway — optional, use only where relevant.]</p></div>
+
+  <!-- END repeatable sub-market block -->
+
+  <h2>Our Takeaway</h2>
+  <p>[3-4 sentence closing synthesis — what's the throughline across all sub-markets this month, and what should someone thinking about buying or selling actually do with this information.]</p>
+
+  <div class="source">Data sourced from [LOCAL REALTOR ASSOCIATION NAME] [MONTH] [YEAR] Monthly Market Statistics, published [PUBLISH DATE].</div>
+
+  <div class="cta">
+    <h3>[CTA HEADLINE — e.g. "What's Your Home Worth Today?"]</h3>
+    <p>[1-2 sentence CTA body tailored to the agent's tone.]</p>
+    <div class="cta-btn-wrap"><a href="[AGENT CONTACT OR HOME VALUATION PAGE URL]" class="cta-btn">[BUTTON TEXT — e.g. "Get Your Free Home Valuation"]</a></div>
+    <p class="cta-sub">[AGENT PHONE NUMBER] &nbsp;·&nbsp; <a href="[AGENT SITE URL]">[AGENT SITE URL, display text]</a></p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
