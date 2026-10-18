@@ -36,6 +36,28 @@ SHOT LIST:
 CAPTION: <full caption, see below>
 ```
 
+## Blog video (pairs with the month's lifestyle blog)
+
+Same shape as the long video above, with these rules so it works as the
+blog's companion:
+
+- Title it with the blog's own title or its main question.
+- The hook is the blog's opening idea, said in one line.
+- Talking points follow the blog's sections in order, one per section,
+  each with that section's single most useful fact or tip. Keep any
+  statistic exactly as the blog has it, and put its source on the end card.
+- Film where the blog lives: the neighborhood, trail, winery or kind of
+  property it's about. For a seller or market piece, a home with the
+  agent's typical setting behind them.
+- The close is the agent's standard CTA plus "The full post is on my
+  website." The caption says "link in bio" on Instagram and links the post
+  on Facebook (placeholder until the link exists).
+- Add a line at the top of the script: `PAIRS WITH: <blog title>. Post once
+  the blog is live.`
+
+Its reel is cut from the same footage: the hook, the blog's three strongest
+points, and the close.
+
 ## Reel cut-down
 
 20–45 seconds, cut from the long video's footage where possible.

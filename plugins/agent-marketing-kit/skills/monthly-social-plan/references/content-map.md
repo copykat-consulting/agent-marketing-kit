@@ -15,9 +15,9 @@ a reel for a specific listing, "Open house post" is a feed post.
 | Key | Default | Make | Source it from |
 |---|---|---|---|
 | `market-video` | 1, day 12 | Market update video: talking points, shot list, on-screen text, caption | The month's market report |
-| `tour-video` | 1, day 22 | Community or lifestyle video: talking points, shot list, on-screen text, caption | The community or lifestyle blog |
+| `tour-video` | 1, day 22 | Blog video: the lifestyle blog told on camera, with talking points that follow its sections, shot list, on-screen text, caption pointing to the post | The lifestyle blog (the one in the newsletter or pasted with the request) |
 | `reel-market` | 1, day 14 | 20–45 second reel script cut from the market video, plus caption and cover-frame text | Market video script |
-| `reel-community` | 1, day 24 | 20–45 second reel script cut from the community video, plus caption and cover-frame text | Community video script |
+| `reel-community` | 1, day 24 | 20–45 second reel script cut from the blog video, plus caption and cover-frame text | Blog video script |
 | `broll` | 4, day 30 | Four B-roll clips: shot list, on-screen text line, caption each | Community blog places, the agent's niche, the month's theme |
 | `feed-posts-15` | 15, day 30 | 15 single-image feed posts: design plus caption | Mix below |
 | `feed-posts` (Carousel posts) | 4, day 30 | Four carousels of 5–8 slides: designs plus caption | One per major piece: market report, each blog, newsletter's tip or checklist feature |
