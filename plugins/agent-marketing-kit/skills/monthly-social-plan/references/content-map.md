@@ -73,5 +73,5 @@ type, swap in another type rather than inventing material.
    network when connected; else 9:30 a.m. in the agent's time zone.
 
 Number posts in calendar order (Post 1, Post 2, …) and use the same
-numbers on the plan page, the design canvas and exported file names, so
+numbers in the plan, the design canvas and exported file names, so
 everything matches up at scheduling time.
