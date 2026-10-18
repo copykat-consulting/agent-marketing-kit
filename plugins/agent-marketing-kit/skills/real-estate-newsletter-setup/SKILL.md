@@ -5,117 +5,136 @@ description: Builds a real estate agent's monthly email newsletter as a self-con
 
 # Real Estate Newsletter (Generic Template)
 
-This is the reusable base this whole newsletter format was built from. It
-produces a monthly email newsletter with: an optional branded header, a
-seasonal/topical hero section, a video spotlight (position configurable —
-above or below the article features), up to 4 rotating article features
-(one of which is often a recurring market report), a 4-listing grid with
-status tags, and an optional branded footer — all in one table-based HTML
-file for maximum email-client compatibility.
+This is the reusable base for a monthly real estate email newsletter. It
+produces one table-based HTML file with, in order:
 
-This structure was proven out over many months of real revisions with
-real estate teams. The "Hard-won gotchas" section below exists because of
-real mistakes caught in that process. Read it before building; it'll save
-you from repeating them.
+1. A light header with the agent's logo (tight spacing, no dark band)
+2. A hero: centered month label and headline, then a short **left-aligned**
+   personal note signed with the agent's first name
+3. An optional video spotlight on the lead accent color
+4. Up to four article features, each with an image, category label, title,
+   teaser and button:
+   - Market update (swapped every month)
+   - This month's blog post (lifestyle, seller or buyer piece)
+   - An expertise tip list written right in the email (the agent's niche:
+     horse property, first-home steps, downsizing, etc.)
+   - A relationship piece (vendor list, client event, seasonal home checklist)
+5. A four-listing grid with status tags
+6. A closing invitation panel using the agent's standard CTA
+7. An optional compliance footer, and the required ESP bar (copyright,
+   mailing address, preferences, unsubscribe) built on Mailchimp merge tags
+
+The "Design defaults" and "Hard-won gotchas" sections below come from real
+client revisions. Read both before building.
 
 ## First-time setup for an agent
 
 In this skill, "the client" means the agent or team whose newsletter you're
 building (often the person you're talking to).
 
-1. **Get or build a brand reference doc first.** Don't start filling in the
-   template from a blank slate. If the client has a "Brand Brain" project
-   doc (or similar), read it in full. If not, ask for (or help them
-   establish): color palette (which colors are dominant vs. accent-only —
-   most real estate brands have ONE lead accent color and should not spread
-   accent weight evenly across 2-3 colors), headline and body fonts, voice/
-   tone, compliance requirements (every brokerage has its own — don't assume
-   one brokerage's rules apply to another), and current live domain. If the
-   agent has the Brand Brain Builder skill, offer to build their Brand Brain
-   first.
+1. **Get or build a brand reference doc first.** If the client has a "Brand
+   Brain" project doc (or similar), read it in full. If not, ask for (or help
+   them establish): color palette (which color leads and which are
+   accent-only), voice/tone, words to avoid, standard CTA and contact
+   method, compliance requirements (every brokerage has its own), current
+   live domain, and hosted logo links. If the agent has the Brand Brain
+   Builder skill, offer to build their Brand Brain first.
 
 2. **Work on a copy of the template, never the original.** Copy
    `assets/template.html` to a new file named for the agent (e.g.
-   `smith-realty-newsletter.html`) and build in that copy, so the original
-   stays a clean starting point. When the first month is done, deliver the
-   finished file and tell the agent to keep it: next month they can share it
-   again (or paste their notes) and you update only the content.
+   `smith-realty-newsletter.html`) and build in that copy. When the first
+   month is done, deliver the finished file and tell the agent to keep it;
+   next month they can share it again and you update only the content.
 
-3. **Fill in every `[BRACKETED TOKEN]`** in the duplicated `template.html`
-   with the client's actual brand values (see the design-tokens comment at
-   the top of the `<style>` block for the full list) and their first
-   month's real content. Once real values are in, the brackets should be
-   gone — a finished template has no literal `[TOKEN]` text left in it.
+3. **Gather the month's content before filling the template.** Look for the
+   month's market report, blog post(s), video and listings in the project
+   docs, attachments or conversation. If a blog post the agent mentions
+   isn't available, ask them to paste it rather than guessing at its
+   content. Use the post's own title and image; write a fresh two- or
+   three-sentence teaser in the agent's voice.
 
-4. **Decide: header/footer in the template, or built in the client's ESP?**
-   This template includes both by default. Some teams prefer to build them
-   directly in Mailchimp instead — that's a preference, not a default to
-   copy blindly. Ask which they want. If they want it removed, delete the two
-   `<!-- ... (optional — delete if...) -->`-marked sections and note in the
-   client's own SKILL.md what their ESP-built footer/header must legally
-   include (see step 5).
+4. **Fill in every `[BRACKETED TOKEN]`** with real brand values (see the
+   design-tokens comment at the top of the `<style>` block) and real
+   content. Delete any section with no content this month (video, listings,
+   an article) rather than leaving placeholders. Before delivering, list any
+   tokens still unfilled (usually links the agent will send later) so they
+   know exactly what to add.
 
-5. **Compliance is brokerage- and state-specific — verify, don't assume.**
-   At minimum, most US real estate newsletters need: the brokerage name (in
-   whatever exact form that brokerage requires — some require spelling it
-   out in full, never abbreviated), a Fair Housing / Equal Housing
-   Opportunity statement, the office address, and an unsubscribe link. Some
-   brokerages have additional rules about logo placement or how the
-   brokerage name is written — ask whether theirs does, and note the answer
-   for future months.
+5. **Header, footer and compliance: ask, and default to the ESP.** Many
+   agents already have their license numbers, brokerage and Equal Housing
+   logo in their Mailchimp footer. Ask whether theirs does.
+   - If yes, delete the optional compliance footer row and remind them the
+     ESP footer must carry everything their brokerage requires.
+   - If no, fill in the compliance footer with the exact wording the
+     brokerage requires (some require the brokerage name spelled out in
+     full, a specific Fair Housing line or an Equal Housing logo image).
+   - Always keep the required ESP bar. Its merge tags (`*|CURRENT_YEAR|*`,
+     `*|LIST:ADDRESSLINE|*`, `*|UPDATE_PROFILE|*`, `*|UNSUB|*`) are
+     Mailchimp's; swap them for the equivalent tags if the client uses
+     another platform.
 
-6. **Decide the video spotlight's position** (above the articles vs. below,
-   just before the listings grid) — ask the client's preference rather than
-   defaulting silently. It's the same block either way; see the placement
-   comment near the top of `template.html`.
+6. **Decide the video spotlight's position.** Default is right after the
+   hero, since many agents treat video as their lead format. Offer to move
+   it lower, just before the listings, if they prefer.
 
 7. **Offer to save their setup as their own skill.** Once the first month
-   is approved, offer to turn the finished template and their preferences
-   (content sources, listing rules, compliance notes, and any corrections
-   they made) into a personal newsletter skill so future months are
-   one-step. Let its "gotchas" grow from their real corrections rather than
-   hypotheticals.
+   is approved, offer to turn the finished file and their preferences
+   (content sources, listing rules, compliance notes, corrections they
+   made) into a personal newsletter skill so future months are one step.
 
-## Hard-won gotchas — apply these to every newsletter
+## Design defaults (apply unless the client asks otherwise)
 
+- **One background color for everything.** The email and the page behind it
+  share the same light background. Don't frame the email in a darker outer
+  color; clients have found it heavy and asked for it removed.
+- **System serif font throughout.** Use Times New Roman (with Times and
+  Georgia as fallbacks) for headlines and body. Brand fonts, even Google
+  Fonts, are silently dropped by Outlook desktop and other inboxes, and
+  clients notice the inconsistency. Only add a web font `@import` if the
+  client explicitly accepts that some recipients won't see it. Don't use
+  light (300) font weights with Times; they render too thin.
+- **Centered layout, left-aligned letter.** Headlines, labels, teasers,
+  buttons, tip lists and listing details are centered. The opening personal
+  note and sign-off are left-aligned so they read like a letter.
+- **Tight header.** Keep the logo close to the top edge with minimal
+  padding above and below. Put the logo on the light background (charcoal
+  logo on ivory, etc.), not on a dark band.
+- **Mailto links for reply-style CTAs.** For "ask me," "request a vendor"
+  or "private showing" buttons, use `mailto:` with a URL-encoded subject
+  line so replies arrive sorted. Use the agent's booking or contact page
+  for the primary CTA if they have one.
+- **Calm copy.** Teasers stay two or three short sentences. CTAs are
+  invitations ("Request a private consultation"), never urgent.
+
+## Hard-won gotchas: apply these to every newsletter
+
+- **Logos and images must be hosted, public URLs.** An email can only show
+  an image that loads from a public link. If no hosted logo exists, the
+  logo will be blank; ask the client to upload it (Mailchimp Content
+  Studio, ImageKit, etc.) and send the link. Don't hot-link images from
+  the client's website; those URLs often aren't stable. Never use a
+  lifestyle library image to represent a specific listing.
 - **Never nest an HTML comment inside another HTML comment.** `-->` inside
   a comment closes it early, and everything after leaks out as visible
-  text at the top of the live email. If you want to leave instructions
-  inside `template.html`, keep each comment simple and never put example
-  markup containing `<!--` or `-->` inside another comment's body — put
-  that kind of guidance in the SKILL.md instead.
-- **Prefer system fonts for headlines when a client cares about consistent
-  rendering.** A Google Fonts `@import` (or any web font) gets silently
-  dropped by a meaningful share of email clients (Outlook desktop
-  especially), so the client ends up seeing their "real" headline font far
-  less often than they think. A well-chosen system font (Times New Roman,
-  Georgia, Arial) renders identically everywhere. This isn't a hard rule —
-  some clients will prefer the brand-accurate look even knowing it won't
-  always render — but raise the tradeoff explicitly rather than picking
-  silently.
-- **One lead accent color, one minor/hairline-only accent color.** Almost
-  every real estate brand palette reviewed so far works this
-  way: black/white or a similar neutral pair as the dominant base, one
-  confident accent color carrying CTAs and brand-weight moments, and at
-  most one more color used sparingly for tiny details only. Resist the
-  urge to give a secondary brand color equal visual weight even if the
-  client's logo uses it — ask which one is meant to lead.
-- **Always label listing status** (For Sale / Pending / For Rent, etc.) on
-  every listing card. Never present a Pending or off-market listing as if
-  it were available without a visible tag — it's a small design detail with
-  real accuracy implications.
-- **Confirm domain-migration status before building links**, every time —
-  don't assume a "we're moving to X domain" note from a prior conversation
-  is still accurate; re-confirm, especially since a site mid-migration can
-  return inconsistent 404s on some pages before others.
-- **Article/listing images and video thumbnails can't be fetched or hosted
-  by Claude.** Every image in the template stays a `[TOKEN]` placeholder
-  until the client supplies an already-hosted URL (their ESP's asset
-  library — Content Studio in Mailchimp, etc.). Don't try to hot-link
-  images from the client's own website; those URLs usually aren't stable or
-  even directly accessible.
-- **When testing a design change the client hasn't confirmed yet** (a font
-  swap, reordering a section, an all-caps treatment), save it as a
-  separate preview file rather than overwriting their working template.
-  Only fold it into the main file once they explicitly confirm they want
-  it kept.
+  text at the top of the live email. Keep each comment simple.
+- **One lead accent color, one minor/hairline-only accent color.** Most real
+  estate palettes work this way: a light neutral base, one confident
+  accent carrying buttons and feature blocks, and at most one more color
+  for tiny details. Ask which color leads if it isn't clear.
+- **Always label listing status** (For Sale / Pending / For Rent) on every
+  listing card. Never present a Pending or off-market listing as
+  available.
+- **Confirm domain-migration status before building links**, every time;
+  a site mid-migration can return 404s on some pages before others.
+- **Follow the client's voice rules strictly.** Check the finished file for
+  banned words and punctuation from their brand doc (many agents ban em
+  dashes, for example) before delivering.
+- **Preview changes the client hasn't confirmed yet** (a font swap, a
+  section reorder) as a separate preview file rather than overwriting their
+  working file. Fold it in once they confirm.
+
+## Subject lines and preview text
+
+See `references/subject-lines-and-preview-text.md`. Offer 3-5 subject lines
+under ~45 characters, plus preview text that teases 2-3 concrete things
+inside the issue and doesn't repeat the opening sentence.
