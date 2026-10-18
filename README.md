@@ -22,7 +22,10 @@ If skills don't run, check that code execution is on under **Settings → Capabi
 | **Real Estate Newsletter Setup** | Builds your monthly email newsletter as HTML ready to paste into Mailchimp or Constant Contact: hero, video spotlight, articles and a listings grid in your brand. | "Set up my monthly newsletter" |
 | **Market Report Blog** | Turns your local association or MLS monthly stats into a branded market report blog post, ready to paste into your website. | "Write this month's market report" (paste or upload the stats) |
 | **Brand Voice Editor** | Runs a draft (your monthly community or lifestyle blog, market report, newsletter or email) through your Brand Brain so it sounds like you, keeping every fact and stat intact. | "Run this blog through my Brand Brain" (paste or upload the draft) |
+| **Monthly Social Plan** | Turns your month's blogs, market report and newsletter into the full social plan on your Command Center checklist: posting calendar, captions, video and reel scripts, B-roll shot lists, Google Business posts and designed feed posts. Marks each item ready for review on your dashboard and, once you approve, loads drafts into Metricool. | "Build my social plan for November" (after your blogs and newsletter are done) |
 
 **Tip:** start with the Brand Brain. The Brand Voice Editor and the other writing skills use it to match your voice.
+
+**Each month:** write your market report and blogs, build your newsletter, then run the Monthly Social Plan in the same Claude Project. It reads all of it and fills your Command Center's social checklist.
 
 For live social numbers in the Command Center, first connect your Instagram, Facebook, LinkedIn and Google Business Profile in Metricool, then connect **Metricool Social Media Management** in Claude under Settings → Connectors.
