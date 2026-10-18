@@ -21,14 +21,18 @@ Find each input in this order: this chat, the current Project's docs, then ask. 
 1. **Brand Brain.** Search the Project for "Brand Brain." Read it in full: Voice & Tone, words used and avoided, formatting rules (many agents ban em dashes), Audience, Offer, results they can cite, Visual Identity (colors, fonts, logo links, photo style, any approved image library), Compliance (sign-off block, claims they can't make, Fair Housing) and standard CTA. Older Brand Brains use different headings (My Voice, Proof, Standard CTA); use what's there. No Brand Brain: stop and offer the Brand Brain Builder first. This skill depends on it.
 2. **The month's content.** Look for this month's market report, community or lifestyle blog, any other blog posts and the email newsletter (HTML or text). Note each piece's title, key facts, numbers with their sources, and live link if known. If the agent mentions a piece that isn't in the Project, ask them to paste or upload it. Never write social content about a piece you haven't read.
 3. **Their Marketing Command Center.** Find their dashboard among their artifacts (titled "Marketing Command Center" or similar; ask if there are several). Read its plan, the target month's checklist items, that month's year-plan theme and hooks, and any saved content ideas planned for that month. Exact data shapes are in `references/dashboard.md`. No dashboard: use the default plan in `references/content-map.md`, say so, and skip Step 7.
-4. **Target month.** Default to the month the content was written for (usually next month, since drafts are due by the 20th of the month before). Confirm in one line if unclear.
-5. **Assets.** Hosted logo link (a white or light version is ideal for photo overlays; recoloring the dark one is fine), photo library links, and listing photos if any listing posts are on the plan. Library photos are lifestyle images: never present one as a specific listing.
+4. **Target month.** Default to the month the content was written for (usually next month, since drafts are due by the 20th of the month before). Compare the content's own month (its newsletter issue, its market report's data month, the year-plan theme it matches) with the month being planned. If they don't line up, for example October content being planned for November, say so in one line and ask whether to wait for the next market report or use this content and note that its stats are a month older. Confirm in one line if unclear.
+5. **Assets: ask for the actual files.** Claude Design can only use image files uploaded to the canvas; it can't load hosted links (ImageKit, the agent's website, Drive previews), and the workspace usually can't download them either. So ask up front, in the same round as other missing inputs, for:
+   - **The photos** for this month's posts as files: attached to the chat, or, if their computer is linked, dropped into a folder you create for them (say exactly where it is, e.g. `Claude/<agent>-social-<month>` in their home folder). Names don't matter; make a contact sheet and match photos to posts by looking at them.
+   - **The logo file** (PNG). A white or light version is ideal for photo overlays. If only a dark logo on a plain background exists, make a white, transparent copy from it (keep the artwork exactly; only change its color) and show it to yourself before using it.
+   - **Photos of the agent** if they have any. Use them for personal and relationship posts; they beat stock-style lifestyle images.
+   - Listing photos only if a listing post is on the plan. Library photos are lifestyle images: never present one as a specific listing. Skip any photo that shows a child's face if the Brand Brain rules that out.
 
 Ask everything missing in ONE short round. Don't block on optional items; leave a clear placeholder like `[ADD: link to the live blog post]` and list it at the end.
 
 ## Step 2: Map the checklist to deliverables
 
-For every Video, Social media and Google Business Profile item on the target month's checklist, decide exactly what to make, using the item's title, quantity and go-live day. `references/content-map.md` maps the default plan keys and explains how to handle items the agent added themselves. Skip Email, Blog and Direct mail items; other skills cover those. Skip review-reply and review-ask items unless the agent asks; offer a short review-request message instead.
+For every Video, Social media and Google Business Profile item on the target month's checklist, decide exactly what to make, using the item's title, quantity and go-live day. Go by each item's **title**, not its key: agents rename and resize items, and the same key can mean different things on different dashboards. When a title doesn't map clearly (for example "Short videos"), ask what it should be in the Step 1 question round, offering two or three concrete options. `references/content-map.md` maps the default plan keys and explains how to handle items the agent added themselves. Skip Email, Blog and Direct mail items; other skills cover those. Skip review-reply and review-ask items unless the agent asks; offer a short review-request message instead.
 
 Each deliverable must trace back to a source: a specific fact, section or story from this month's content, the month's theme or hook, a saved content idea, or a Brand Brain proof point or personal detail. Repurpose; don't invent.
 
@@ -58,11 +62,12 @@ Rules that apply to every word:
 - Keep every number exactly as the source has it, with its source and month. No unsourced or rounded stats.
 - Use only results and proof the Brand Brain lists. Never invent client stories, testimonials, listings, awards or counts.
 - Check every caption and script against the Brand Brain's avoided words and formatting rules, and against the AI tells in the Brand Voice Editor skill's reference if it's installed. Fix before delivering.
+- Repurpose the facts, not the phrasing. Source blogs often contain patterns to avoid (for example "Not what you paid. Not what a neighbor guessed."); rewrite those lines rather than lifting them into captions or slides.
 - Fair Housing: describe places and amenities, never who should live there.
 
 ## Step 5: Design the posts in Claude Design
 
-Create ONE Design canvas named "<Month Year> Social Posts" from the Design artifact type and follow that type's own instructions for building it, including using the agent's design system if one is marked default. Build to `references/design-brief.md`:
+Create ONE Design canvas named "<Month Year> Social Posts" from the Design artifact type and follow that type's own instructions for building it, including using the agent's design system if one is marked default. Upload the photos and logo to the canvas first (resize photos to about 1600 px on the long side), then build to `references/design-brief.md`:
 
 - Feed posts and the market stats graphic at 1080 × 1350; carousel slides at 1080 × 1350, grouped per carousel.
 - Full-bleed photo, soft dark overlay, white or light text and logo, three or four rotating layouts.
@@ -80,7 +85,9 @@ Copy `assets/plan-page.html`, fill in the plan data block as that file's comment
 Using `references/dashboard.md`, update only the target month's items this skill produced:
 
 - Set status to `review` and `link` to the plan page URL (the design canvas URL for design-only items). For counted items, set `done` to the number produced.
-- Read each item first and leave alone any already at `approved`, `scheduled` or `done`, plus any item you didn't produce.
+- Read each item first and leave alone any already at `approved`, `scheduled` or `done`, plus any item you didn't produce. Read again right before writing: the agent may open the dashboard while you work, which changes an item's version even when nothing visible changed.
+- Mark items as they're finished rather than all at the end. Copy-only items (videos, reels, Google Business posts) can go to review as soon as the plan page is published; design items once the canvas is built.
+- If slide or on-image copy changed while designing, update the plan page so it matches the canvas exactly.
 - Write all updates in one batch.
 
 Then tell the agent, briefly: what's ready, where it is, what placeholders they need to fill, and what to film. Remind them to review on the dashboard or the plan page, and to export the designs as PNGs once they're happy.

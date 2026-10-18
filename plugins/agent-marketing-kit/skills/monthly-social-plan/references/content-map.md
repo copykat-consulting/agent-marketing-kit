@@ -3,8 +3,14 @@
 ## Default plan items this skill covers
 
 These are the Command Center's default keys. Agents can rename, resize or
-remove them, so always go by the month's actual items; this table says what
-each one means.
+remove them, and keys don't always match titles (the default `feed-posts`
+key is titled "Carousel posts", while an agent's own `feed-posts` may be
+plain feed posts). Always go by each item's title and quantity on the
+month's checklist; this table only says what the default titles mean.
+
+Common custom titles: "Short videos" usually means 15–30 second talking
+tips (confirm with the agent; it could also mean B-roll), "Listing reel" is
+a reel for a specific listing, "Open house post" is a feed post.
 
 | Key | Default | Make | Source it from |
 |---|---|---|---|
