@@ -454,6 +454,7 @@ select.pill{width:132px}
 .sp-ta{font:14px/1.6 var(--f-body);color:var(--ink);background:var(--panel);border:1px solid var(--line-strong);padding:12px 14px;width:100%;box-sizing:border-box;resize:vertical;min-height:220px}
 .sp-acts{display:flex;flex-wrap:wrap;gap:8px}
 .sp-edited{font-size:12.5px;color:var(--muted)}
+.cnt{display:inline-flex;flex-direction:column;gap:6px;align-items:stretch}
 </style>
 
 <canvas id="confetti" aria-hidden="true"></canvas>
@@ -596,7 +597,7 @@ select.pill{width:132px}
   /* ---------- checklist logic ---------- */
   const isDone = (it) => (it.qty > 1 ? (it.done || 0) >= it.qty : it.status === "done");
   const stateOf = (it) => {
-    if (it.qty > 1) { const d = it.done || 0; return d <= 0 ? "todo" : d >= it.qty ? "done" : "doing"; }
+    if (it.qty > 1) { /* counted-review v1 */ const d = it.done || 0; if (d >= it.qty) return "done"; if (["review", "changes", "approved", "scheduled"].includes(it.status)) return it.status; return d > 0 || it.status === "doing" ? "doing" : "todo"; }
     return STATUS[it.status] ? it.status : "todo";
   };
   /* Two deadlines per item: the draft is due to the agent for review `lead` days before it goes live. */
@@ -691,7 +692,7 @@ select.pill{width:132px}
   const ownerOptions = (sel) => `<option value="" ${!sel ? "selected" : ""}>Not assigned</option><option value="agent" ${sel === "agent" ? "selected" : ""}>${esc(teamName("agent"))}</option><option value="assistant" ${sel === "assistant" ? "selected" : ""}>${esc(teamName("assistant"))}</option>`;
   const whenLabel = (iso) => { const d = new Date(iso); return isNaN(d) ? "" : SHORT[d.getMonth()] + " " + d.getDate() + ", " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }); };
   const linkLabel = (u) => /docs\.google\.com\/document/.test(u) ? "Google Doc" : /docs\.google\.com\/spreadsheets/.test(u) ? "Google Sheet" : /docs\.google\.com\/presentation/.test(u) ? "Google Slides" : /drive\.google\.com/.test(u) ? "Google Drive file" : /canva\.com/.test(u) ? "Canva design" : /mailchimp|eepurl/.test(u) ? "Mailchimp draft" : "link";
-  const nameOf = (id) => (id && S.names[id]) || "Someone";
+  const nameOf = (id) => id === "claude" ? "Claude" : (id && S.names[id]) || "Someone";
   function threadHTML(it) {
     const t = it.thread || [];
     if (!t.length) return `<p class="muted" style="margin:0;font-size:13px">No notes yet.</p>`;
@@ -720,8 +721,8 @@ select.pill{width:132px}
     if (!S.db || !S.itemsLoaded || (!S.items.length && !S.nextItems.length)) { el.innerHTML = ""; return; }
     const ro = !S.canWrite || S.writeRefused;
     const pool = S.ym === todayYM ? [...S.items, ...S.nextItems] : S.items;
-    const rev = pool.filter((i) => i.qty <= 1 && i.status === "review");
-    const back = pool.filter((i) => i.qty <= 1 && i.status === "changes");
+    const rev = pool.filter((i) => i.status === "review" && !isDone(i));
+    const back = pool.filter((i) => i.status === "changes" && !isDone(i));
     const last = (i) => { const t = (i.thread || []).filter((m) => m.text); return t.length ? t[t.length - 1] : null; };
     const card = (i, lane) => {
       const l = last(i), link = safeUrl(i.link), Y = `data-ym="${esc(i._ym)}"`, rq = S.reqFor === i.id + "|" + i._ym;
@@ -888,11 +889,12 @@ select.pill{width:132px}
   function itemHTML(it, ro) {
     if (S.editing === it.id) return editorHTML(it);
     const st = stateOf(it), d = dueInfo(it), link = safeUrl(it.link);
+    const statusSel = (opts) => `<select class="pill" data-s="${st}" data-status-id="${esc(it.id)}" ${ro ? "disabled" : ""} aria-label="Status for ${esc(it.title)}">${opts.map(([k, v]) => `<option value="${k}" ${k === st ? "selected" : ""}>${v}</option>`).join("")}</select>`;
     const control = it.qty > 1
-      ? `<span class="step num" data-s="${st}" role="group" aria-label="${esc(it.title)}: ${it.done || 0} of ${it.qty} done">
+      ? `<span class="cnt">${st === "done" ? `<span class="pill" data-s="done">Published</span>` : statusSel(Object.entries(STATUS).filter(([k]) => k !== "done"))}<span class="step num" data-s="${st}" role="group" aria-label="${esc(it.title)}: ${it.done || 0} of ${it.qty} done">
            <button type="button" data-act="dec" data-id="${esc(it.id)}" ${ro || !(it.done > 0) ? "disabled" : ""} aria-label="One fewer done">−</button>
            <span>${it.done || 0} of ${it.qty}</span>
-           <button type="button" data-act="inc" data-id="${esc(it.id)}" ${ro || (it.done || 0) >= it.qty ? "disabled" : ""} aria-label="One more done">+</button></span>`
+           <button type="button" data-act="inc" data-id="${esc(it.id)}" ${ro || (it.done || 0) >= it.qty ? "disabled" : ""} aria-label="One more live">+</button></span></span>`
       : `<select class="pill" data-s="${st}" data-status-id="${esc(it.id)}" ${ro ? "disabled" : ""} aria-label="Status for ${esc(it.title)}">${Object.entries(STATUS).map(([k, v]) => `<option value="${k}" ${k === st ? "selected" : ""}>${v}</option>`).join("")}</select>`;
     const cls = (ph) => d.phase === ph ? (d.late ? "late" : d.soon ? "soon" : "active") : "dim";
     const due = d.done ? `<span>Went live ${esc(d.live)}</span>`
@@ -989,7 +991,7 @@ select.pill{width:132px}
       if (id) {
         const it = findItem(id); key = it?.key || id;
         const upd = { ...data };
-        if (data.qty > 1) { upd.done = Math.min(it?.done || 0, data.qty); upd.status = upd.done >= data.qty ? "done" : upd.done > 0 ? "doing" : "todo"; }
+        if (data.qty > 1) { upd.done = Math.min(it?.done || 0, data.qty); upd.status = upd.done >= data.qty ? "done" : it?.status && it.status !== "done" ? it.status : upd.done > 0 ? "doing" : "todo"; }
         else if ((it?.qty || 1) > 1) { upd.status = (it.done || 0) >= it.qty ? "done" : "todo"; upd.done = 0; }
         await itemsCol().doc(id).update(upd);
       } else {
@@ -1084,7 +1086,7 @@ select.pill{width:132px}
     else if ((act === "inc" || act === "dec") && it) {
       const d = Math.max(0, Math.min(it.qty, (it.done || 0) + (act === "inc" ? 1 : -1)));
       celebrate(e, id, act === "inc" && d >= it.qty);
-      write(() => itemsCol().doc(id).update({ done: d, status: d >= it.qty ? "done" : d > 0 ? "doing" : "todo" }));
+      write(() => itemsCol().doc(id).update({ done: d, status: d >= it.qty ? "done" : it.status === "done" ? "scheduled" : (it.status || "todo") }));
     }
     else if (act === "edit" && it) { S.editing = id; renderCards(); }
     else if (act === "new") { S.editing = "new:" + (b.dataset.ch || "Other"); renderCards(); }
@@ -1429,7 +1431,7 @@ select.pill{width:132px}
     const f = S.socialFilter;
     const status = (p) => {
       const it = itemOf(p); if (!it) return "";
-      if (it.qty > 1) return `<span class="pill num" data-s="${stateOf(it)}">${it.done || 0} of ${it.qty} live</span>`;
+      if (it.qty > 1) { const s2 = stateOf(it); return `<span class="pill num" style="width:auto;padding:6px 12px" data-s="${s2}">${s2 === "done" ? "Published" : esc(STATUS[s2]) + " · " + (it.done || 0) + "/" + it.qty + " live"}</span>`; }
       const st = stateOf(it); return `<span class="pill" data-s="${st}">${STATUS[st]}</span>`;
     };
     const list = posts.filter((p) => f === "All" || p.format === f).map((p) => `

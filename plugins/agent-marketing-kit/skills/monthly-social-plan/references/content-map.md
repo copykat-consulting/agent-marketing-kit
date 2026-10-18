@@ -22,11 +22,11 @@ a reel for a specific listing, "Open house post" is a feed post.
 | `feed-posts-15` | 15, day 30 | 15 single-image feed posts: design plus caption | Mix below |
 | `feed-posts` (Carousel posts) | 4, day 30 | Four carousels of 5–8 slides: designs plus caption | One per major piece: market report, each blog, newsletter's tip or checklist feature |
 | `market-graphic` | 1, day 12 | Market stats graphic: one design plus caption | Market report's headline numbers |
-| `gbp-posts` | 5, day 30 | Five Google Business posts: text, image choice, button | Blogs, market report and newsletter, about one every six days |
+| `gbp-posts` | 5, day 30 | Five Google Business posts, each reusing one of the month's designed posts: same image, short Google text, Learn more button | The market stats graphic plus designed posts tied to the blogs and market report, about one every six days |
 | `gbp-reviews`, `review-ask` | | Skip. Offer a short review-request text the agent can send | |
 
 Not covered (other skills make these): `newsletter`, `single-topic-email`,
-`listings-email`, `market-blog`, `community-blog`, `postcard`, and any
+`market-blog`, `community-blog`, `postcard`, and any
 other Email, Blog or Direct mail item.
 
 ## Items the agent added

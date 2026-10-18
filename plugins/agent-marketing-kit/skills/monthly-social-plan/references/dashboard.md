@@ -31,10 +31,14 @@ that belongs to a different agent.
   do.
 - `channel` is one of `Email`, `Blog`, `Video`, `Social media`,
   `Google Business Profile`, `Direct mail`, `Other`.
-- `qty` above 1 is a counted item (e.g. 15 feed posts); `done` counts how
-  many are **live** (posted). The dashboard ignores `status` on counted
-  items: their state comes from `done`, and `done` equal to `qty` shows as
-  Published. Counted items also never appear in the review queue.
+- `qty` above 1 is a counted item (e.g. 15 feed posts). It has two
+  separate things: `status` for the drafts (Ready for review, Approved…),
+  and `done`, which counts how many are **live** (posted). `done` equal to
+  `qty` shows as Published. Counted items go through the review queue like
+  any other item. (Dashboards built before this change ignore `status` on
+  counted items; check for `counted-review v1` in the page, and if it's
+  missing, upgrade the dashboard with the Command Center skill's
+  `scripts/upgrade_dashboard.py` first.)
 - `dueDay` is the go-live day of the target month.
 - **Ideas:** use ideas where `month` equals `YYYY-MM` and `used` is not
   true. Each is a reel or post the agent saved from elsewhere; adapt its
@@ -69,10 +73,11 @@ you read:
 
 - `link`: the dashboard's Social plan tab (`<dashboard URL>#social`), or the plan page URL when there's no Social plan tab, for copy, script and calendar items; the design
   canvas URL for items that are only designs (e.g. the market stats graphic).
-- **Never set `done` on counted items.** `done` means posted, not
-  drafted; setting it marks the item as Published. Set only `link` on
-  them (and `status`, which is harmless). Their posts are reviewed on the
-  Social plan tab instead of the review queue.
+- Set `status` to `review` on every item you produced, counted items
+  included.
+- **Never set `done`.** On counted items it counts posts that are live;
+  filling it marks the item as Published. The agent moves it up as posts
+  go out (or Claude does, later, if they ask).
 - Skip any item at `approved`, `scheduled` or `done`, and any item at
   `changes` unless this run is the revision the agent asked for.
 - If a write fails because the item changed meanwhile, read it again and
@@ -91,7 +96,7 @@ item to `scheduled` only if the agent asks.
 
 Dashboards with a **Social plan** tab (look for `id="tab-social"` in the
 page; older ones can be upgraded with the Command Center skill's
-`scripts/add_social_tab.py`) read the plan from one document:
+`scripts/upgrade_dashboard.py`) read the plan from one document:
 collection `social`, doc id `YYYY-MM`. Write it with `set` from a local
 JSON file (`file_path`), pinned with its version if it already exists.
 
@@ -113,6 +118,9 @@ JSON file (`file_path`), pinned with its version if it already exists.
   doesn't have (`slides` for single images, `script` for designs).
 - `item` must be the key of a real item in `months/YYYY-MM/items`, so the
   post shows that item's status.
+- Google Business posts: `caption` is the Google text, `script` is just the
+  `IMAGE:` and `BUTTON:` lines, and `reuses` is the number of the designed
+  post whose image it reuses (Step 8 loads that post's image with it).
 - Rewriting the plan replaces `posts`. Caption edits live separately (below)
   and are keyed by post number, so keep post numbers stable on revisions.
 

@@ -39,7 +39,9 @@ CAPTION: <full caption, see below>
 ## Blog video (pairs with the month's lifestyle blog)
 
 Same shape as the long video above, with these rules so it works as the
-blog's companion:
+blog's companion. When the agent supplies their own script, keep its
+structure and facts, rewrite the wording in their voice (Brand Brain), and
+swap generic places for their own communities; these rules still apply:
 
 - Title it with the blog's own title or its main question.
 - The hook is the blog's opening idea, said in one line.
@@ -118,8 +120,9 @@ Source: <publisher, month year>          (only when a statistic appears)
 
 ```
 GBP POST <n>: <title>
-IMAGE: <which design or library photo>
-TEXT (100-300 words, no hashtags, no phone number in the text):
+IMAGE: Post <n> design (reuse a designed post; don't make a new one)
+TEXT (80-200 words, no hashtags, no phone number in the text; this goes in
+the post's caption field on the dashboard, not in its script):
 <local, useful, keyword-natural: community names, what the post covers>
 BUTTON: Learn more → <blog post URL>   (or Call)
 ```

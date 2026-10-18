@@ -77,9 +77,11 @@ Metricool pulls from Dropbox links too.
    - `providers` for the networks on the plan that the brand has connected
      (`networksData` in the brand settings), each with its network data
      (`instagramData: {type: "POST"}`, `facebookData: {type: "POST"}`)
-6. **Google Business posts** go as `gmb` with `gmbData: {type: "publication"}`
-   and the post's text (up to 1,500 characters, no hashtags). They don't need
-   an image.
+6. **Google Business posts** go as `gmb` with `gmbData: {type: "publication"}`,
+   the post's Google text (its `caption`, up to 1,500 characters, no
+   hashtags) and the image of the design it `reuses` in `media`. Load the first one on its own and check
+   it kept its image. If Metricool drops the image or rejects it, load the
+   rest as text only and tell the agent they can add the image in Metricool.
 7. **Skip what can't be loaded yet:** reels and talking videos need the
    finished video file (Instagram rejects posts without media). List them
    with their dates so the agent can add them in Metricool once filmed.

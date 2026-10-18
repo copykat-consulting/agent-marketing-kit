@@ -1,18 +1,21 @@
 {
   "name": "agent-marketing-kit",
   "displayName": "CopyKat Agent Marketing Kit",
-  "description": "Marketing tools for real estate agents: a Marketing Command Center dashboard, a Brand Brain voice guide builder, a Brand Voice Editor, a monthly email newsletter builder, a monthly market report blog builder and a monthly social media plan builder.",
+  "description": "Marketing tools for real estate agents: a Monthly Marketing guide that walks you through the whole month, a Marketing Command Center dashboard, a Brand Brain voice guide builder, a Brand Voice Editor, and builders for the monthly newsletter, market report blog, single-topic email, market report postcard and social media plan.",
   "author": {
     "name": "CopyKat Consulting"
   },
   "keywords": [
-    "real estate",
-    "marketing",
-    "content calendar",
-    "newsletter",
-    "market report",
     "brand voice",
+    "content calendar",
     "dashboard",
+    "direct mail",
+    "email",
+    "market report",
+    "marketing",
+    "newsletter",
+    "postcard",
+    "real estate",
     "social media"
   ]
 }
