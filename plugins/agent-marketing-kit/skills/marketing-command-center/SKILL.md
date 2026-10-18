@@ -66,6 +66,7 @@ Tell the agent, briefly:
 - The page is private to them. To bring in an assistant, use the page's Share menu, invite them by email with **Can edit**; the assistant needs their own Claude account. (The Performance page and "Fill in from screenshot" use the agent's own Claude and connectors, so those work for the agent only.)
 - How it works:
   - **This month:** progress, network snapshots, a tracker for next month's content (due the 20th), the review queue, and checklist cards by section. Status is a drop-down: Not started → Drafting → Ready for review → Needs changes → Approved → Scheduled → Published. Setting "Ready for review" asks for the Google Doc or draft link.
+  - **Social plan:** once the Monthly Social Plan skill has run, the month's posting calendar, every post with its caption, carousel slides, video and reel scripts, and a link to the designs. Each post shows its status from the checklist. Anyone with edit access can tap **Edit** on a caption, change it and save; the post shows who edited it, with **Restore original** to undo. **Copy** copies the caption for scheduling.
   - **Performance:** Instagram, Facebook, LinkedIn and Google Business numbers from Metricool, month over month.
   - **Content ideas:** paste a reel link and add a screenshot; Claude reads the hook, caption and likes from the screenshot. Plan ideas into any month and add them to that month's checklist in one tap.
   - **Year plan:** monthly themes and topics; tap Edit on any month.
@@ -76,6 +77,7 @@ Tell the agent, briefly:
 
 - **Plan, team names, themes, font:** the agent can change most of these on the page itself. If they ask you, update the matching document in the artifact's database (read it first and pass its version).
 - **Colors or layout:** read the artifact, edit its HTML and republish to the same artifact.
+- **Adding the Social plan tab to an older dashboard:** dashboards built before this tab existed don't have it. Read the artifact, save its page to a file (drop the first line if it is the publish wrapper, which starts with `<!doctype html><html><head><meta charset=utf8>`), run `python3 scripts/add_social_tab.py <file>`, check the script with `node --check`, and republish to the same artifact without changing its capabilities. The script keeps the agent's colors, fonts and names, and stops without changes if the tab is already there.
 - **Changing the draft day:** in the HTML, find `S.draftDay = 20;` and change the number, then republish.
 
 ## Rules

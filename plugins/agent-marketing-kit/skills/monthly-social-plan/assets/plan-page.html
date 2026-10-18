@@ -1,0 +1,314 @@
+<title>Social Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Instrument+Sans:wght@400;600&display=swap">
+<!--
+  MONTHLY SOCIAL PLAN PAGE
+  Fill in ONLY the JSON inside <script id="plan-data"> below, then publish.
+  Change the <title> above to "<Agent or team> Social Plan, <Month Year>".
+  Everything on the page renders from that JSON. Keep it valid JSON:
+  double quotes, no trailing commas, \n for line breaks inside strings.
+
+  Fields:
+    agent        agent or team name as on their Brand Brain
+    brand        accent (lead brand color, hex) and accentDark (a lighter
+                 version of it that reads on a dark background)
+    month        "YYYY-MM"; monthLabel "November 2026"
+    theme        the dashboard's theme for the month
+    designUrl    the Claude Design canvas link ("" until it exists)
+    dashboardUrl the agent's Marketing Command Center link, or ""
+    sources      the month's content this plan was built from:
+                 {title, kind ("Market report" | "Blog" | "Newsletter" | ...), url}
+    todo         placeholders the agent still needs to fill, one per string
+    posts        one per deliverable, in calendar order:
+      n          post number (matches the design canvas and file names)
+      date       "YYYY-MM-DD"; time "9:30 AM"
+      networks   e.g. ["Instagram","Facebook"]
+      format     one of: "Feed post", "Carousel", "Market graphic", "Video",
+                 "Reel", "B-roll", "Google Business"
+      title      short working title
+      source     what it was built from, e.g. "November market report"
+      onImage    {label, headline} for designed posts, or omit
+      slides     for carousels: array of slide copy strings, or omit
+      script     for videos, reels, B-roll and GBP: the full script or
+                 shot list as plain text with \n line breaks, or omit
+      caption    the full caption including the sign-off block
+-->
+<script id="plan-data" type="application/json">
+{
+  "agent": "Example Agent",
+  "brand": { "accent": "#4D5548", "accentDark": "#B7C2AE" },
+  "month": "2026-11",
+  "monthLabel": "November 2026",
+  "theme": "Gratitude and gathering",
+  "designUrl": "",
+  "dashboardUrl": "",
+  "sources": [
+    { "title": "October market report (example)", "kind": "Market report", "url": "" }
+  ],
+  "todo": [ "Example: add the live link to the community blog" ],
+  "posts": [
+    {
+      "n": 1, "date": "2026-11-03", "time": "9:30 AM",
+      "networks": ["Instagram", "Facebook"], "format": "Feed post",
+      "title": "Example post", "source": "Example source",
+      "onImage": { "label": "EXAMPLE · NOVEMBER 2026", "headline": "Example headline" },
+      "caption": "Example caption.\n\nSign-off block here."
+    },
+    {
+      "n": 2, "date": "2026-11-05", "time": "9:30 AM",
+      "networks": ["Instagram", "Facebook"], "format": "Reel",
+      "title": "Example reel", "source": "Example video",
+      "script": "REEL: Example\n0-2s HOOK: Example line",
+      "caption": "Example reel caption."
+    }
+  ]
+}
+</script>
+
+<style>
+/* Layout: a month calendar on top, then one card per post in date order; brand accent from the plan data. */
+:root {
+  --bg: #f6f5f1; --panel: #ffffff; --ink: #24261f; --muted: #686a60; --line: #e2e0d8;
+  --accent: #4D5548; --on-accent: #ffffff; --chip: #eeede7;
+  --f-feed: #3f6db3; --f-carousel: #8a5bb8; --f-graphic: #b06a1f; --f-video: #b8455a;
+  --f-reel: #c4466f; --f-broll: #5b7f3a; --f-gbp: #2f8a86;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #171815; --panel: #20221e; --ink: #ecebe5; --muted: #a3a49a; --line: #34362f;
+  --accent: #B7C2AE; --on-accent: #171815; --chip: #2a2c27;
+  --f-feed: #86a9e6; --f-carousel: #c1a0e6; --f-graphic: #e3a560; --f-video: #ec8c9c;
+  --f-reel: #f08cb0; --f-broll: #a3c77f; --f-gbp: #75cbc6; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #171815; --panel: #20221e; --ink: #ecebe5; --muted: #a3a49a; --line: #34362f;
+  --accent: #B7C2AE; --on-accent: #171815; --chip: #2a2c27;
+  --f-feed: #86a9e6; --f-carousel: #c1a0e6; --f-graphic: #e3a560; --f-video: #ec8c9c;
+  --f-reel: #f08cb0; --f-broll: #a3c77f; --f-gbp: #75cbc6; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--sans); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-block: 40px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: grid; gap: 6px; margin-bottom: 28px }
+.eyebrow { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted) }
+h1 { font: 400 clamp(30px, 5vw, 46px)/1.1 var(--serif); margin: 0; text-wrap: balance }
+.theme { color: var(--muted); margin: 0 }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 999px;
+  background: var(--accent); color: var(--on-accent); text-decoration: none; font-size: 13px; font-weight: 600; border: 0; cursor: pointer }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line) }
+.btn:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+
+.summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none }
+.summary li { background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 13px }
+.summary b { font-variant-numeric: tabular-nums }
+
+section { margin-top: 36px }
+h2 { font: 400 24px/1.2 var(--serif); margin: 0 0 14px }
+
+.cal-scroll { overflow-x: auto }
+.cal { display: grid; grid-template-columns: repeat(7, minmax(110px, 1fr)); gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-width: 780px }
+.cal .dow { background: var(--chip); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 6px 8px }
+.cal .day { background: var(--panel); min-height: 92px; padding: 6px; display: flex; flex-direction: column; gap: 4px }
+.cal .day.out { background: var(--bg) }
+.cal .num { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums }
+.chip { display: block; font-size: 11.5px; line-height: 1.3; padding: 3px 6px; border-radius: 5px; text-decoration: none;
+  color: var(--ink); background: var(--chip); border-left: 3px solid var(--fc, var(--muted)); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px }
+.filters button { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--ink); cursor: pointer }
+.filters button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent) }
+
+.posts { display: grid; gap: 14px }
+.post { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: grid; gap: 10px; min-width: 0 }
+.post-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px }
+.post-num { font: 400 22px/1 var(--serif); font-variant-numeric: tabular-nums }
+.post h3 { font-size: 16px; margin: 0; flex: 1 1 220px }
+.meta { font-size: 13px; color: var(--muted) }
+.tag { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--fc) }
+.onimage { font-size: 13px; background: var(--chip); border-radius: 8px; padding: 8px 12px }
+.onimage span { color: var(--muted) }
+pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 14px/1.6 var(--sans); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; max-height: 420px; overflow: auto }
+details summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--muted) }
+details[open] summary { margin-bottom: 8px }
+.cap-row { display: flex; justify-content: space-between; align-items: center; gap: 10px }
+.cap-row strong { font-size: 13px }
+.copy { font: inherit; font-size: 12px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer }
+ol.slides { margin: 0; padding-left: 20px; font-size: 14px }
+.todo, .sources { margin: 0; padding-left: 20px }
+.empty { color: var(--muted) }
+@media (max-width: 560px) { .post { padding: 16px } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow" id="h-eyebrow"></div>
+    <h1 id="h-title"></h1>
+    <p class="theme" id="h-theme"></p>
+    <div class="actions" id="h-actions"></div>
+  </header>
+
+  <ul class="summary" id="summary"></ul>
+
+  <section aria-labelledby="cal-h">
+    <h2 id="cal-h">Posting calendar</h2>
+    <div class="cal-scroll"><div class="cal" id="cal"></div></div>
+  </section>
+
+  <section aria-labelledby="posts-h">
+    <h2 id="posts-h">Every post</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter by format"></div>
+    <div class="posts" id="posts"></div>
+  </section>
+
+  <section aria-labelledby="todo-h" id="todo-sec">
+    <h2 id="todo-h">Still to fill in</h2>
+    <ul class="todo" id="todo"></ul>
+  </section>
+
+  <section aria-labelledby="src-h">
+    <h2 id="src-h">Built from</h2>
+    <ul class="sources" id="sources"></ul>
+  </section>
+</div>
+
+<script>
+(function () {
+  var D;
+  try { D = JSON.parse(document.getElementById("plan-data").textContent); }
+  catch (e) { document.getElementById("h-title").textContent = "Plan data could not be read."; return; }
+
+  var FORMATS = { "Feed post": "--f-feed", "Carousel": "--f-carousel", "Market graphic": "--f-graphic",
+    "Video": "--f-video", "Reel": "--f-reel", "B-roll": "--f-broll", "Google Business": "--f-gbp" };
+  function fc(f) { return "var(" + (FORMATS[f] || "--muted") + ")"; }
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    for (var k in (attrs || {})) { if (k === "text") n.textContent = attrs[k]; else if (k === "style") n.style.cssText = attrs[k]; else n.setAttribute(k, attrs[k]); }
+    (kids || []).forEach(function (c) { if (c) n.appendChild(c); });
+    return n;
+  }
+  function safe(u) { return /^https:\/\//i.test(u || "") ? u : ""; }
+
+  // Brand accent
+  var root = document.documentElement, dark = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+  function applyAccent() {
+    var t = root.getAttribute("data-theme"), isDark = t ? t === "dark" : dark;
+    var a = isDark ? (D.brand && D.brand.accentDark) : (D.brand && D.brand.accent);
+    if (/^#[0-9a-f]{3,8}$/i.test(a || "")) root.style.setProperty("--accent", a);
+  }
+  applyAccent();
+  if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) { dark = e.matches; applyAccent(); });
+  new MutationObserver(applyAccent).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+
+  var posts = (D.posts || []).slice().sort(function (a, b) { return (a.date + a.n).localeCompare(b.date + b.n); });
+
+  // Header
+  document.getElementById("h-eyebrow").textContent = (D.agent || "") + " · Social plan";
+  document.getElementById("h-title").textContent = D.monthLabel || D.month || "";
+  document.getElementById("h-theme").textContent = D.theme ? "Theme: " + D.theme : "";
+  var acts = document.getElementById("h-actions");
+  if (safe(D.designUrl)) acts.appendChild(el("a", { class: "btn", href: D.designUrl, target: "_blank", rel: "noopener", text: "Open the post designs" }));
+  if (safe(D.dashboardUrl)) acts.appendChild(el("a", { class: "btn ghost", href: D.dashboardUrl, target: "_blank", rel: "noopener", text: "Review on the dashboard" }));
+
+  // Summary counts
+  var counts = {};
+  posts.forEach(function (p) { counts[p.format] = (counts[p.format] || 0) + 1; });
+  var sum = document.getElementById("summary");
+  sum.appendChild(el("li", {}, [el("b", { text: String(posts.length) }), document.createTextNode(" items")]));
+  Object.keys(counts).forEach(function (f) {
+    sum.appendChild(el("li", { style: "border-left:3px solid " + fc(f) }, [el("b", { text: String(counts[f]) }), document.createTextNode(" " + f + (counts[f] > 1 && !/s$/.test(f) ? "s" : ""))]));
+  });
+
+  // Calendar
+  var cal = document.getElementById("cal");
+  ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(function (d) { cal.appendChild(el("div", { class: "dow", text: d })); });
+  var ym = (D.month || "").split("-"), y = +ym[0], m = +ym[1] - 1;
+  if (y && m >= 0) {
+    var first = new Date(y, m, 1).getDay(), days = new Date(y, m + 1, 0).getDate();
+    var cells = Math.ceil((first + days) / 7) * 7;
+    for (var i = 0; i < cells; i++) {
+      var dnum = i - first + 1, inMonth = dnum >= 1 && dnum <= days;
+      var cell = el("div", { class: "day" + (inMonth ? "" : " out") });
+      if (inMonth) {
+        cell.appendChild(el("div", { class: "num", text: String(dnum) }));
+        var iso = D.month + "-" + String(dnum).padStart(2, "0");
+        posts.filter(function (p) { return p.date === iso; }).forEach(function (p) {
+          cell.appendChild(el("a", { class: "chip", href: "#post-" + p.n, title: p.format + ": " + p.title, style: "--fc:" + fc(p.format), text: "#" + p.n + " " + p.title }));
+        });
+      }
+      cal.appendChild(cell);
+    }
+  }
+
+  // Post cards
+  var list = document.getElementById("posts");
+  function fmtDate(iso) { var p = iso.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]); return d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }); }
+  function copyBtn(text) {
+    var b = el("button", { class: "copy", type: "button", text: "Copy" });
+    b.addEventListener("click", function () {
+      var done = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1600); };
+      var fallback = function () { var r = document.createRange(); r.selectNodeContents(b.closest(".capbox").querySelector("pre")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+    });
+    return b;
+  }
+  posts.forEach(function (p) {
+    var card = el("article", { class: "post", id: "post-" + p.n, "data-format": p.format, style: "--fc:" + fc(p.format) });
+    card.appendChild(el("div", { class: "post-head" }, [
+      el("span", { class: "post-num", text: String(p.n).padStart(2, "0") }),
+      el("h3", { text: p.title || "" }),
+      el("span", { class: "tag", text: p.format || "" })
+    ]));
+    card.appendChild(el("div", { class: "meta", text: fmtDate(p.date) + (p.time ? " · " + p.time : "") + (p.networks && p.networks.length ? " · " + p.networks.join(", ") : "") + (p.source ? " · From: " + p.source : "") }));
+    if (p.onImage && (p.onImage.label || p.onImage.headline)) {
+      card.appendChild(el("div", { class: "onimage" }, [el("span", { text: "On the image: " }), document.createTextNode((p.onImage.label ? p.onImage.label + " / " : "") + (p.onImage.headline || ""))]));
+    }
+    if (p.slides && p.slides.length) {
+      var ol = el("ol", { class: "slides" });
+      p.slides.forEach(function (s) { ol.appendChild(el("li", { text: s })); });
+      card.appendChild(el("details", {}, [el("summary", { text: "Slides (" + p.slides.length + ")" }), ol]));
+    }
+    if (p.script) {
+      card.appendChild(el("details", { open: "" }, [el("summary", { text: /Google/.test(p.format) ? "Post text" : "Script and shot list" }), el("pre", { text: p.script })]));
+    }
+    if (p.caption) {
+      card.appendChild(el("div", { class: "capbox" }, [
+        el("div", { class: "cap-row" }, [el("strong", { text: "Caption" }), copyBtn(p.caption)]),
+        el("pre", { text: p.caption })
+      ]));
+    }
+    list.appendChild(card);
+  });
+  if (!posts.length) list.appendChild(el("p", { class: "empty", text: "No posts in this plan yet." }));
+
+  // Filters
+  var fbox = document.getElementById("filters"), current = "All";
+  ["All"].concat(Object.keys(counts)).forEach(function (f) {
+    var b = el("button", { type: "button", "aria-pressed": f === "All" ? "true" : "false", text: f });
+    b.addEventListener("click", function () {
+      current = f;
+      fbox.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x.textContent === f ? "true" : "false"); });
+      list.querySelectorAll(".post").forEach(function (c) { c.hidden = !(f === "All" || c.getAttribute("data-format") === f); });
+    });
+    fbox.appendChild(b);
+  });
+
+  // To-do and sources
+  var todo = document.getElementById("todo");
+  (D.todo || []).forEach(function (t) { todo.appendChild(el("li", { text: t })); });
+  if (!(D.todo || []).length) document.getElementById("todo-sec").hidden = true;
+  var src = document.getElementById("sources");
+  (D.sources || []).forEach(function (s) {
+    var li = el("li");
+    if (safe(s.url)) li.appendChild(el("a", { href: s.url, target: "_blank", rel: "noopener", text: s.title }));
+    else li.appendChild(document.createTextNode(s.title || ""));
+    if (s.kind) li.appendChild(document.createTextNode(" (" + s.kind + ")"));
+    src.appendChild(li);
+  });
+})();
+</script>
