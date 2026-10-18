@@ -7,7 +7,7 @@ Marketing tools for real estate agents, from CopyKat Consulting.
 | Skill | What it does | How to start |
 |---|---|---|
 | **Marketing Command Center** | Builds your own private marketing dashboard: monthly content checklist with draft and go-live dates, review and approval workflow, social and Google Business performance from Metricool, content ideas board and a 12-month year plan. | "Set up my Marketing Command Center" |
-| **Brand Brain Builder** | Walks you through building your Brand Brain: who you serve, your voice, proof points, content rules, CTA and compliance, so everything Claude writes sounds like you. | "Help me build my Brand Brain" |
+| **Brand Brain Builder** | Interviews you in 5 short steps (brand assets, voice, audience and offer, visuals, compliance) and builds your Brand Brain, so everything Claude writes sounds like you and follows your brand. | "Help me build my Brand Brain" |
 | **Real Estate Newsletter Setup** | Builds your monthly email newsletter as HTML ready to paste into Mailchimp or Constant Contact: hero, video spotlight, articles and a listings grid in your brand. | "Set up my monthly newsletter" |
 | **Market Report Blog** | Turns your local association or MLS monthly stats into a branded market report blog post, ready to paste into your website. | "Write this month's market report" (paste or upload the stats) |
 | **Brand Voice Editor** | Runs a draft (your monthly community or lifestyle blog, market report, newsletter or email) through your Brand Brain so it sounds like you, keeping every fact and stat intact. | "Run this blog through my Brand Brain" (paste or upload the draft) |

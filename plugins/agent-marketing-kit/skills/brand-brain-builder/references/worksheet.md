@@ -1,51 +1,58 @@
-# Brand Brain Worksheet
+# Brand Brain Interview Questions
 
-Ask these a few at a time, in plain language. Rough, spoken-style answers are perfect. Tell the agent to answer in their own words, because their phrasing is what makes the final document sound like them.
+Ask one step at a time, never more than 6 questions in one message. Split a step into parts if needed. Skip anything their uploads or earlier answers already cover, and instead show what you found and ask them to confirm. If they say "skip," mark it MISSING.
 
-## About you
-1. Your name, team name (if any), and brokerage.
-2. Where do you work? Which towns, counties, or neighborhoods?
-3. How long have you lived in the area? Are you from here?
+## Step 1 of 5: Raw brand assets
+1. Upload or paste any brand assets you already have: logo files, brand guidelines or a color palette.
+2. 3–5 past emails or newsletters.
+3. 5–10 past social posts.
+4. Your website's About page and homepage text, and your website URL.
+5. A mission or vision statement and your bio, if you have them.
+6. Your Google or Zillow reviews.
 
-## Who you serve
-4. Who are your best clients? Who do you want more of over the next year?
-5. When those clients first reach out, what are they worried about? What do they ask you?
-6. Is there a group you still serve but are not trying to grow? (This is useful to capture. It keeps future content from drifting.)
-7. How do clients find you today? (Referrals, website, social, events, word of mouth.)
+## Step 2 of 5: Voice and tone
+1. Share 3–5 real sentences you've written that sound most like you.
+2. Share 2–3 sentences that feel off-brand (things you'd never say, or AI drafts that missed) and what's wrong with each.
+3. Words and phrases you use often?
+4. Words and phrases you avoid?
+5. Three words for how you want to sound.
+6. Your style: short or long sentences, humor, emoji, exclamation points?
 
-## What makes you different
-8. What do clients say about you most often, in their words?
-9. What can you do that most agents in your market cannot, or do not?
-10. Do you have a team? Who supports the follow-through clients mention?
+## Step 3 of 5: Audience and offer
+Part 1
+1. Your name, team and brokerage, exactly as your brokerage requires.
+2. Your focus communities and ZIP codes.
+3. The types of clients you serve most.
+4. Their pain points and what they ask in the first conversation, in their words.
+5. What they care about when choosing an agent.
+6. Your services and specialties.
 
-## Your voice
-11. Pick three words for how you want to sound.
-12. Do you write in short, punchy sentences or longer, flowing ones?
-13. Is humor welcome in your content? How much?
-14. Any words, phrases, or punctuation you avoid or love? (For example: no em dashes, no exclamation points, no "call me today.")
-15. Is there anything about you that should shape the voice, like your age, your background, or your local roots, so content does not sound like someone else?
+Part 2
+7. Your price range.
+8. What makes you different from other agents in your market?
+9. Your elevator pitch.
+10. Any results you can honestly cite: transactions, volume, awards. (Only share numbers you're comfortable seeing in marketing.)
 
-## Proof
-16. How many transactions do you close in a typical year? (Only share numbers you are comfortable having in marketing.)
-17. Any awards, designations, volume, or days-on-market numbers you can honestly cite?
-18. Where is most of your business coming from: referrals, repeat clients, online, something else?
-19. Paste your Google reviews, or point me to the link. (Optional but best.)
+## Step 4 of 5: Visual and formatting standards
+Part 1
+1. Your brand colors with hex codes, and which color leads versus accents only.
+2. Your fonts.
+3. Your logo usage rules.
+4. Your photo style.
+5. How your emails, newsletters or blogs are usually laid out.
+6. What you send email from (Mailchimp, Constant Contact, etc.).
 
-## Your life outside work
-20. What do you genuinely enjoy and would actually post about? Hobbies, family, pets, local spots, community involvement.
-21. Any ongoing storyline worth returning to in content? (A project, a build, a business, a milestone.)
+Part 2
+7. What your website is built on, plus your contact page link.
+8. Any templates or Canva designs you already use.
 
-## Content
-22. Where do you want to show up: website blog, Instagram, Facebook, email, direct mail, video, something else?
-23. How often do you realistically want to publish on each?
-24. What formats do you love? What do you refuse to do?
-25. Do you want the focus to be you, your clients, or your community? (Many agents want the place and its people to be the star.)
+## Step 5 of 5: Compliance and non-negotiables
+1. What does your brokerage require on marketing? (Brokerage name, DRE or license number, logo placement, Equal Housing, disclaimers.)
+2. Claims you can't make.
+3. Your standard sign-off or contact block, exactly as it should appear.
+4. Things you never do or post.
 
-## Your call to action
-26. After someone reads a post or watches a reel, what do you want them to do?
-27. Does that thing exist yet (a form, guide, landing page, booking link)?
+Not sure about a rule? Mark it "confirm with broker."
 
-## Compliance
-28. What does your brokerage require on marketing pieces? (Brokerage name, license number, logos, Fair Housing, disclaimers.)
-29. Do you have a standard sign-off block with your contact details? Paste it exactly as you want it to appear.
-30. Not sure about any of this? Say so, and it gets flagged to confirm with your broker.
+## Wrap-up
+Name the thinnest areas and ask up to 3 final questions to fill the most important gaps.
