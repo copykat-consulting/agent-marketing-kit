@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>[CLIENT_NAME] | [TOPIC TITLE]</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<![endif]-->
+<style>
+  /*
+    DESIGN TOKENS: replace every bracketed value for a new client, then
+    find-and-replace the same tokens in the inline styles below. Email
+    clients largely ignore CSS variables, so colors are set inline.
+
+    [BACKGROUND_COLOR]      one light background for the whole email AND
+                            the page behind it (no darker outer frame)
+    [PRIMARY_COLOR]         headlines, wordmark-level text (near-black)
+    [BODY_TEXT_COLOR]       paragraph text
+    [SECONDARY_TEXT_COLOR]  specs, captions, small print
+    [LEAD_ACCENT_COLOR]     buttons, video block, listings bar, category labels
+    [ON_ACCENT_TEXT_COLOR]  text on the lead accent (usually the background color)
+    [ON_ACCENT_MUTED_COLOR] small labels on the lead accent
+    [MINOR_ACCENT_COLOR]    eyebrows, short hairline under the hero headline,
+                            Pending tags. Never a button or block fill.
+    [HAIRLINE_COLOR]        divider lines between articles (soft, light)
+    [CTA_PANEL_COLOR]       closing invitation panel, a shade darker than
+                            the background (or the background itself)
+
+    FONT: system serif by default, see SKILL.md. Brand web fonts are
+    dropped by many inboxes, so do not add a Google Fonts import unless
+    the client accepts that tradeoff.
+  */
+
+  body, table, td, p, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
+  body { margin: 0; padding: 0; width: 100% !important; background-color: [BACKGROUND_COLOR]; }
+
+  .headline { font-family: 'Times New Roman', Times, Georgia, serif; }
+  .body-font { font-family: 'Times New Roman', Times, Georgia, serif; }
+
+  a.btn { text-decoration: none; }
+
+  @media only screen and (max-width: 600px) {
+    .email-container { width: 100% !important; }
+    .stack { display: block !important; width: 100% !important; }
+    .mobile-pad { padding-left: 24px !important; padding-right: 24px !important; }
+    .listing-cell { width: 100% !important; display: block !important; padding: 0 0 24px 0 !important; }
+    .h1-size { font-size: 28px !important; line-height: 34px !important; }
+    .h2-size { font-size: 23px !important; line-height: 29px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:[BACKGROUND_COLOR];">
+
+  <!-- Preheader (hidden preview text) -->
+  <div style="display:none; font-size:1px; color:[BACKGROUND_COLOR]; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden;">
+    [PREHEADER TEXT: one line teasing 2-3 things inside, distinct from the opening sentence]
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:[BACKGROUND_COLOR];">
+    <tr>
+      <td align="center" style="padding: 0 12px 32px 12px;">
+
+        <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:[BACKGROUND_COLOR];">
+
+          <!-- ============ HEADER: logo on the light background, tight spacing ============ -->
+          <tr>
+            <td align="center" style="background-color:[BACKGROUND_COLOR]; padding: 14px 20px 12px 20px;">
+              <img src="[LOGO_IMAGE_URL]" width="300" alt="[CLIENT_NAME]" style="display:block; margin:0 auto; width:300px; max-width:300px;">
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:[LEAD_ACCENT_COLOR]; height:3px; line-height:3px; font-size:1px;">&nbsp;</td>
+          </tr>
+
+
+          <!-- ============ HERO: label, the topic's headline, its image ============ -->
+          <tr>
+            <td align="center" class="mobile-pad" style="padding: 36px 46px 6px 46px;">
+              <div class="body-font" style="color:[MINOR_ACCENT_COLOR]; font-size:11px; letter-spacing:3px; text-transform:uppercase; padding-bottom:12px;">[TOPIC LABEL, e.g. LIFE INLAND or MARKET UPDATE] &nbsp;&middot;&nbsp; [MONTH YEAR]</div>
+              <h1 class="headline h1-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:32px; line-height:40px; font-weight:400;">[EMAIL HEADLINE: the blog's title or its main question, shortened]</h1>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 14px 0 0 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td style="border-top:1px solid [MINOR_ACCENT_COLOR]; width:56px; font-size:1px; line-height:1px;">&nbsp;</td>
+              </tr></table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 28px 20px 0 20px;">
+              <img src="[HERO_IMAGE_URL]" width="560" alt="[HERO_IMAGE_ALT]" style="width:100%; max-width:560px;">
+            </td>
+          </tr>
+
+          <!-- ============ OPENING: a short letter, left-aligned ============ -->
+          <tr>
+            <td align="left" class="body-font mobile-pad" style="text-align:left; padding: 30px 46px 10px 46px; color:[BODY_TEXT_COLOR]; font-size:16px; line-height:27px;">
+              [OPENING: two or three short sentences in the agent's voice: why this topic, why now, a personal detail]
+            </td>
+          </tr>
+
+          <!-- ============ KEY POINTS: repeat this row once per point (3 to 5), left-aligned ============ -->
+          <tr>
+            <td align="left" class="mobile-pad" style="text-align:left; padding: 18px 46px 6px 46px;">
+              <div class="body-font" style="color:[LEAD_ACCENT_COLOR]; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:500; padding-bottom:6px;">[POINT NUMBER, e.g. 01]</div>
+              <h2 class="headline h2-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:23px; line-height:30px; font-weight:400;">[POINT HEADING: from the blog section]</h2>
+              <div class="body-font" style="padding-top:10px; color:[BODY_TEXT_COLOR]; font-size:16px; line-height:27px;">[POINT TEXT: two or three short sentences, the section's single most useful fact or tip]</div>
+            </td>
+          </tr>
+
+          <!-- ============ SOURCES (keep whenever a point has a statistic) ============ -->
+          <tr>
+            <td align="left" class="body-font mobile-pad" style="text-align:left; padding: 14px 46px 0 46px; color:[SECONDARY_TEXT_COLOR]; font-size:12px; line-height:19px;">
+              [SOURCES: publisher and month for every statistic above, e.g. Sources: Redfin, August 2026]
+            </td>
+          </tr>
+
+          <!-- ============ PULL QUOTE (optional) ============ -->
+          <tr>
+            <td align="center" class="mobile-pad" style="padding: 30px 60px 8px 60px;">
+              <div class="headline" style="color:[PRIMARY_COLOR]; font-size:21px; line-height:31px; font-style:italic;">[ONE LINE FROM THE BLOG WORTH REPEATING, in the agent's voice]</div>
+            </td>
+          </tr>
+
+          <!-- ============ READ THE FULL POST ============ -->
+          <tr>
+            <td align="center" class="body-font mobile-pad" style="padding: 22px 46px 22px 46px; color:[BODY_TEXT_COLOR]; font-size:15px; line-height:25px;">
+              [ONE LINE: what else the full post covers]
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding: 0 0 26px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" style="background-color:[LEAD_ACCENT_COLOR]; border-radius:2px;">
+                  <a href="[BLOG_POST_URL]" class="btn body-font" style="display:inline-block; padding:14px 34px; color:[ON_ACCENT_TEXT_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Read the Full Post</a>
+                </td>
+              </tr></table>
+            </td>
+          </tr>
+
+          <!-- ============ VIDEO (optional: the blog video, once it is posted; delete this row if not) ============ -->
+          <tr>
+            <td style="background-color:[LEAD_ACCENT_COLOR]; padding: 44px 20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="padding: 0 26px 20px 26px;">
+                    <div class="body-font" style="color:[ON_ACCENT_MUTED_COLOR]; font-size:11px; letter-spacing:3px; text-transform:uppercase; padding-bottom:10px;">Watch the Video</div>
+                    <h2 class="headline h2-size" style="margin:0; color:[ON_ACCENT_TEXT_COLOR]; font-size:25px; line-height:32px; font-weight:400;">[VIDEO_TITLE]</h2>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding: 0 0 22px 0;">
+                    <a href="[VIDEO_URL]" style="display:block;">
+                      <img src="[VIDEO_THUMBNAIL_URL]" width="500" alt="[VIDEO_TITLE]" style="width:100%; max-width:500px; margin:0 auto;">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" class="body-font" style="padding: 0 40px 24px 40px; color:[ON_ACCENT_TEXT_COLOR]; font-size:15px; line-height:24px;">
+                    [VIDEO_DESCRIPTION: one or two short lines]
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                      <td align="center" style="border:1px solid [ON_ACCENT_TEXT_COLOR]; border-radius:2px;">
+                        <a href="[VIDEO_URL]" class="btn body-font" style="display:inline-block; padding:12px 32px; color:[ON_ACCENT_TEXT_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Watch Now</a>
+                      </td>
+                    </tr></table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ============ CLOSING INVITATION ============ -->
+          <tr>
+            <td align="center" class="mobile-pad" style="background-color:[CTA_PANEL_COLOR]; padding: 44px 50px;">
+              <h2 class="headline h2-size" style="margin:0; color:[PRIMARY_COLOR]; font-size:25px; line-height:32px; font-weight:400;">[CLOSING_HEADLINE: the agent's standard CTA, phrased as a question]</h2>
+              <div class="body-font" style="padding: 16px 0 26px 0; color:[BODY_TEXT_COLOR]; font-size:15px; line-height:25px;">[CLOSING_LINE: one calm sentence]</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                <td align="center" style="background-color:[LEAD_ACCENT_COLOR]; border-radius:2px;">
+                  <a href="[PRIMARY_CTA_LINK: mailto, booking or contact page]" class="btn body-font" style="display:inline-block; padding:14px 34px; color:[ON_ACCENT_TEXT_COLOR]; font-size:12px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">[PRIMARY_CTA_TEXT]</a>
+                </td>
+              </tr></table>
+            </td>
+          </tr>
+
+          <!-- ============ COMPLIANCE FOOTER (optional: delete if the client's ESP footer carries license numbers, brokerage and Equal Housing) ============ -->
+          <tr>
+            <td align="center" class="body-font" style="background-color:[BACKGROUND_COLOR]; padding: 36px 30px 24px 30px; color:[SECONDARY_TEXT_COLOR]; font-size:11px; line-height:19px;">
+              [AGENT_NAME] | [LICENSE_LABEL]: [AGENT_LICENSE] &nbsp;&middot;&nbsp; [BROKERAGE_NAME] | [LICENSE_LABEL]: [BROKERAGE_LICENSE]<br>
+              [FAIR_HOUSING_STATEMENT: exact wording confirmed with the brokerage]
+            </td>
+          </tr>
+
+          <!-- ============ REQUIRED ESP BAR: keep. Mailchimp merge tags fill these in at send time. ============ -->
+          <tr>
+            <td align="center" class="body-font" style="background-color:[BACKGROUND_COLOR]; padding: 18px 30px; color:[LEAD_ACCENT_COLOR]; font-size:11px; line-height:18px;">
+              Copyright &copy; *|CURRENT_YEAR|* [CLIENT_NAME]. All rights reserved.<br>
+              *|LIST:ADDRESSLINE|*<br>
+              <a href="*|UPDATE_PROFILE|*" style="color:[LEAD_ACCENT_COLOR];">Update your preferences</a> &nbsp;|&nbsp; <a href="*|UNSUB|*" style="color:[LEAD_ACCENT_COLOR];">Unsubscribe</a>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /email-container -->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

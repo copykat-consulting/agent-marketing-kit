@@ -9,17 +9,10 @@
   },
   {
    "key": "single-topic-email",
-   "title": "e-Report (single-topic email)",
+   "title": "Single-topic email (from the lifestyle blog)",
    "channel": "Email",
    "qty": 1,
    "dueDay": 15
-  },
-  {
-   "key": "listings-email",
-   "title": "Active listings email (all current listings)",
-   "channel": "Email",
-   "qty": 1,
-   "dueDay": 21
   },
   {
    "key": "market-blog",
@@ -95,7 +88,7 @@
    "key": "gbp-posts",
    "title": "Google Business Profile posts",
    "channel": "Google Business Profile",
-   "qty": 4,
+   "qty": 5,
    "dueDay": 30
   },
   {
@@ -114,7 +107,7 @@
   },
   {
    "key": "postcard",
-   "title": "Direct mail postcard",
+   "title": "Market report postcard",
    "channel": "Direct mail",
    "qty": 1,
    "dueDay": 15

@@ -78,5 +78,6 @@ market report has them.
 - Rows grouped by week in posting order, with a title note for each week
   ("Week 1, Nov 2–8").
 - Optional reel cover frames at 1080 × 1920 in a final row.
-- Before handing over, tell the agent to export each artboard as a PNG
-  and keep the post number in the file name.
+- Name each artboard file by post number (`P07`, and `P15-1`, `P15-2`, …
+  for carousel slides). Step 8's render script names the images from these,
+  so they match the plan. The agent doesn't need to export anything.

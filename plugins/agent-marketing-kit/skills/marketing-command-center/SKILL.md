@@ -1,6 +1,6 @@
 ---
 name: marketing-command-center
-description: Sets up a real estate agent's Marketing Command Center, a private dashboard with a monthly content checklist, review and approval workflow, social and Google Business performance from Metricool, a visual content ideas board and a 12-month year plan. Use when an agent asks to set up, build, rebuild or customize their Marketing Command Center, content dashboard or marketing tracker.
+description: Step 2 of 3 in the agent marketing system. Sets up a real estate agent's Marketing Command Center, a private dashboard with a monthly content checklist, review and approval workflow, social and Google Business performance from Metricool, a visual content ideas board and a 12-month year plan. Use when an agent asks to set up, build, rebuild or customize their Marketing Command Center, content dashboard or marketing tracker.
 ---
 
 # Marketing Command Center setup
@@ -8,6 +8,14 @@ description: Sets up a real estate agent's Marketing Command Center, a private d
 You are setting up a Marketing Command Center for a real estate agent or team. The finished product is ONE private, published artifact page built from `assets/template.html`, with the agent's own plan, team names, year themes and style stored in that artifact's database. Everything the agent sees comes from that database; never write their data into the HTML.
 
 Speak to the agent in plain, friendly language. Most agents are not technical: don't mention databases, documents, JSON, capabilities or file names.
+
+This is **Step 2 of 3**: (1) Brand Brain, (2) Marketing Command Center, (3) monthly marketing. Say so in one line at the start.
+
+## Step 0: Start from their Brand Brain
+
+Look for their Brand Brain in this chat or the Project (search for "Brand Brain").
+- **Found:** read it and use it to pre-fill the interview: their name and business name, assistant's name if listed, brand colors and fonts (pick the closest built-in font pairing), communities and seasonal topics for the year plan, the services they offer (to shape the checklist), and any channels they don't use (drop those items from the plan). Show what you pre-filled and ask them to confirm or change it, instead of asking each question from scratch.
+- **Not found:** suggest doing Step 1 first ("Build my Brand Brain"), since everything Claude writes later depends on it. If they'd rather set up the dashboard first, carry on with the interview below.
 
 ## Step 1: Check the setup they need
 
@@ -62,22 +70,25 @@ Do not create content ideas, review notes or statuses for them. Those are theirs
 
 ## Step 5: Hand it over
 
+Save a short note to the Project (if you can write to it) named `Marketing-Command-Center.md` with the dashboard's link and the date it was set up, so Step 3 and later chats can find it. Otherwise ask the agent to keep the link handy.
+
 Tell the agent, briefly:
 - The page is private to them. To bring in an assistant, use the page's Share menu, invite them by email with **Can edit**; the assistant needs their own Claude account. (The Performance page and "Fill in from screenshot" use the agent's own Claude and connectors, so those work for the agent only.)
 - How it works:
-  - **This month:** progress, network snapshots, a tracker for next month's content (due the 20th), the review queue, and checklist cards by section. Status is a drop-down: Not started → Drafting → Ready for review → Needs changes → Approved → Scheduled → Published. Setting "Ready for review" asks for the Google Doc or draft link.
+  - **This month:** progress, network snapshots, a tracker for next month's content (due the 20th), the review queue, and checklist cards by section. Status is a drop-down: Not started → Drafting → Ready for review → Needs changes → Approved → Scheduled → Published. Setting "Ready for review" asks for the Google Doc or draft link. Items with a count (12 feed posts, 5 Google posts) have the same status for their drafts, plus a live counter: tap + as each one posts, and it shows Published when all are live.
   - **Social plan:** once the Monthly Social Plan skill has run, the month's posting calendar, every post with its caption, carousel slides, video and reel scripts, and a link to the designs. Each post shows its status from the checklist. Anyone with edit access can tap **Edit** on a caption, change it and save; the post shows who edited it, with **Restore original** to undo. **Copy** copies the caption for scheduling.
   - **Performance:** Instagram, Facebook, LinkedIn and Google Business numbers from Metricool, month over month.
   - **Content ideas:** paste a reel link and add a screenshot; Claude reads the hook, caption and likes from the screenshot. Plan ideas into any month and add them to that month's checklist in one tap.
   - **Year plan:** monthly themes and topics; tap Edit on any month.
   - **Fonts** button: try other fonts live.
   - Each new month: tap "Set up <Month>" to load the recurring items.
+- **Then point to Step 3:** "You're ready for Step 3. Whenever you want to start a month, say: I'm ready to create my marketing for <next month>. I'll walk you through every piece and check it off here as we go." Keep it to a line or two.
 
 ## Changing things later
 
 - **Plan, team names, themes, font:** the agent can change most of these on the page itself. If they ask you, update the matching document in the artifact's database (read it first and pass its version).
 - **Colors or layout:** read the artifact, edit its HTML and republish to the same artifact.
-- **Adding the Social plan tab to an older dashboard:** dashboards built before this tab existed don't have it. Read the artifact, save its page to a file (drop the first line if it is the publish wrapper, which starts with `<!doctype html><html><head><meta charset=utf8>`), run `python3 scripts/add_social_tab.py <file>`, check the script with `node --check`, and republish to the same artifact without changing its capabilities. The script keeps the agent's colors, fonts and names, and stops without changes if the tab is already there.
+- **Bring an older dashboard up to date:** dashboards built from an older template are missing newer features (the Social plan tab, review status on counted items, notes from Claude labeled "Claude"). Read the artifact, save its page to a file (drop the first line if it is the publish wrapper, which starts with `<!doctype html><html><head><meta charset=utf8>`), run `python3 scripts/upgrade_dashboard.py <file>`, check the script with `node --check`, and republish to the same artifact without changing its capabilities. It keeps the agent's colors, fonts and names, and skips anything already there, so it's safe to run on any dashboard. Tell the agent in a line or two what's new.
 - **Changing the draft day:** in the HTML, find `S.draftDay = 20;` and change the number, then republish.
 
 ## Rules
