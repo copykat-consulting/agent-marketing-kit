@@ -62,7 +62,7 @@ Only once the agent approves the social plan (on the dashboard or in chat), in t
 
 1. **Show it:** send the file or artifact and say in one or two lines what it is.
 2. **Save it to the Project** so later steps and later months can find it: market reports in `claude/market-reports/`, blogs in `claude/blogs/`, newsletters in `claude/newsletters/`, emails in `claude/emails/`, postcards in `claude/postcards/`, social plans in `claude/social/`. Name each one `<Agent>_<Piece>_<Month><Year>`.
-3. **Mark it on the dashboard** (`references/checklist-map.md` has the exact writes): set the item to `review`, set `link` when the piece has one (a published artifact, a live blog post, the Social plan tab), and add a note saying where the file is ("Saved in your Claude Project as …").
+3. **Mark it on the dashboard** (`references/checklist-map.md` has the exact writes): set the item to `review`, set `link` to the piece's review page (every blog, email and postcard gets one; see "Review pages" in the reference) or the Social plan tab for social items, and add a note saying where the file is ("Saved in your Claude Project as …").
 4. **Ask before moving on:** "Want any changes, or shall we do your <next piece>?" Make their changes first. They can also say "skip" (leave the item as it is and go on) or "stop for today" (remind them the dashboard shows where they are, and they can say "keep going on my November marketing" anytime).
 
 ## Rules

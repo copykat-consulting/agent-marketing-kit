@@ -64,13 +64,40 @@ Read the item, then write one pinned update:
 ```
 
 - Keep every existing `thread` entry and add the new note at the end.
-- Set `link` only to something that opens in a browser: a published
-  artifact, a live blog post, or `<dashboard URL>#social` for social items.
-  Files saved in the Project go in the note instead.
+- Set `link` only to something that opens in a browser: the piece's review
+  page (below), a live blog post, or `<dashboard URL>#social` for social
+  items. Never a Project path: those don't open from the dashboard. The
+  Project path goes in the note.
 - Skip items at `approved`, `scheduled` or `done`, and items at `changes`
   unless this is the revision they asked for.
 - If the write fails because the item changed, read it again and redo that
   one write.
+
+## Review pages: one clickable link per piece
+
+Every piece that isn't social gets a review page, so the agent can click
+"Open" on its dashboard card and see it: the market report blog, the
+lifestyle blog, the newsletter, the single-topic email and the postcard.
+The paste-ready file itself never changes.
+
+1. Make the review copy with the Command Center skill's script
+   `../marketing-command-center/scripts/make_review_page.py`:
+   - Blogs and emails:
+     `python3 make_review_page.py html <piece.html> <dir>/index.html --name "<Agent> Lifestyle Blog, November 2026" --kind "Lifestyle blog" --saved "in your Project, claude/blogs/<file>.html"`
+   - Postcard:
+     `python3 make_review_page.py postcard <dir> --name "<Agent> Market Postcard, November 2026" --front <front.png> --back <back.png> --pdf <postcard.pdf> --saved "<where the PDF is>"`
+   It adds a slim "Review copy" bar. Photos hosted on ImageKit can't load
+   inside a review page, so each shows as a labeled photo box and the bar
+   lists every photo as a link that opens it. Tell the agent this once.
+2. Publish `<dir>/index.html` as an artifact (icon `article` for blogs,
+   `mail` for emails and the postcard). For the postcard, publish
+   `front.png`, `back.png` and `postcard.pdf` from the same folder as
+   supporting files.
+3. Put the artifact URL in the item's `link` when you mark it Ready for
+   review.
+4. Revisions: rebuild the review copy and republish to the same artifact
+   (same file path in this chat, or its URL from the item's `link`), so the
+   dashboard link keeps working.
 
 ## Setting up a month that has no items yet
 

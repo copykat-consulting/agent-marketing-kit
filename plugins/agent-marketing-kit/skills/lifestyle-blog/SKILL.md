@@ -60,4 +60,4 @@ Check it: open the file in a browser preview at desktop and phone widths, and lo
 
 ## If there's a Marketing Command Center
 
-Set the month's lifestyle or community blog item to Ready for review with a note saying where the file is. Follow the Command Center's data rules: read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published. When the post is live, ask for its link so the newsletter, single-topic email and social posts can use it.
+Set the month's lifestyle or community blog item to Ready for review with a note saying where the file is. Publish a review page for it and put that link on the item, following the monthly guide's "Review pages" steps (`../monthly-marketing/references/checklist-map.md`), so the agent can click straight into it from the dashboard. Follow the Command Center's data rules: read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published. When the post is live, ask for its link so the newsletter, single-topic email and social posts can use it.
