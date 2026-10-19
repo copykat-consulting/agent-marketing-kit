@@ -28,7 +28,7 @@ Each step names what to gather, which skill makes it, and which checklist items 
 | # | Piece | Made with | Closes |
 |---|---|---|---|
 | 1 | Market report blog | Market Report Blog skill | Market update blog post |
-| 2 | Lifestyle blog (+ its video script) | Brand Voice Editor skill | Community or lifestyle blog post |
+| 2 | Lifestyle blog (+ its video script) | Lifestyle Blog skill | Community or lifestyle blog post |
 | 3 | Newsletter | Real Estate Newsletter Setup skill | Monthly email newsletter |
 | 4 | Single-topic email | Single-Topic Email skill | Single-topic email |
 | 5 | Market report postcard | Market Report Postcard skill | Market report postcard / Direct mail postcard |
@@ -39,9 +39,9 @@ Each step names what to gather, which skill makes it, and which checklist items 
 Ask for this month's stats (their association's PDF, or numbers to paste). Follow the Market Report Blog skill. Everything later uses these numbers, so get them right here.
 
 ### 2. Lifestyle blog and video script
-The agent brings their own. Ask them to paste the blog text, and the video script that goes with it if they have one. Run both through the Brand Voice Editor skill with their Brand Brain:
-- **Blog:** an edit, not a rewrite. Keep every fact, the structure and the purpose; fix the voice, banned words and formatting; set it in their market and communities.
-- **Video script:** rewrite it in their voice, as talking points they can say naturally, set in their communities. Keep it for Step 6 (it becomes the paired blog video and its reel). Don't build social posts yet.
+The agent brings their own. Ask them to paste the blog text, and the video script that goes with it if they have one. Follow the Lifestyle Blog skill:
+- **Blog:** a voice edit, not a rewrite (every fact, the structure and the purpose stay), then built as a branded HTML post in the same design as Step 1's market report, ready to paste into their website. Always deliver the HTML, never just edited text.
+- **Video script:** rewritten in their voice, as talking points they can say naturally, set in their communities. Keep it for Step 6 (it becomes the paired blog video and its reel). Don't build social posts yet.
 
 ### 3. Newsletter
 Follow the Real Estate Newsletter Setup skill. It features both blogs from Steps 1 and 2. Use the blogs' live links if they're up; otherwise leave clear placeholders and add them to the to-do list.

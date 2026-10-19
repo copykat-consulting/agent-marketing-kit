@@ -1,7 +1,7 @@
 {
   "name": "agent-marketing-kit",
   "displayName": "CopyKat Agent Marketing Kit",
-  "description": "A month of real estate marketing in three steps: build your Brand Brain, set up your Marketing Command Center dashboard, then let the Monthly Marketing guide walk you through the market report blog, lifestyle blog, newsletter, single-topic email, postcard, social media and videos each month.",
+  "description": "A month of real estate marketing in three steps: build your Brand Brain, set up your Marketing Command Center dashboard, then let the Monthly Marketing guide walk you through the market report blog, lifestyle blog (coded to match), newsletter, single-topic email, postcard, social media and videos each month.",
   "author": {
     "name": "CopyKat Consulting"
   },

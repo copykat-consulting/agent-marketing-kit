@@ -17,7 +17,7 @@ Do all three inside one Claude Project for your marketing (for example "Jane Smi
 | # | Piece | What you bring |
 |---|---|---|
 | 1 | Market report blog | Your association's monthly stats (PDF or numbers) |
-| 2 | Lifestyle blog and its video script, edited into your voice | Your blog text and video script |
+| 2 | Lifestyle blog, edited into your voice and coded to match your market report post, plus its video script | Your blog text and video script |
 | 3 | Monthly email newsletter (Mailchimp-ready HTML) | Live blog links, if they're up |
 | 4 | Single-topic email from your lifestyle blog (or the market report) | |
 | 5 | Market report postcard, 8.5 × 5.5, print-ready PDF | Headshot and a front photo, the first time |
@@ -36,6 +36,7 @@ Steps 1–3 use these skills. You can also run any of them on its own.
 | **Marketing Command Center** | Step 2. Also updates older dashboards with new features. | "Set up my Marketing Command Center" |
 | **Monthly Marketing** | Step 3: the monthly guide. | "I'm ready to create my marketing for <month>" |
 | **Market Report Blog** | Turns your association's monthly stats into a branded blog post for your website. | "Write this month's market report" |
+| **Lifestyle Blog** | Edits the blog you bring into your voice and builds it as HTML in the same design as your market report post. | "Format my lifestyle blog" (paste the blog) |
 | **Brand Voice Editor** | Runs any draft through your Brand Brain so it sounds like you, keeping every fact. | "Run this blog through my Brand Brain" |
 | **Real Estate Newsletter Setup** | Your monthly email newsletter as HTML for Mailchimp or Constant Contact. | "Build my newsletter" |
 | **Single-Topic Email** | One blog post turned into a short email in your newsletter's design. | "Make my single-topic email from this blog" |
