@@ -71,8 +71,12 @@ you read:
  "if_version": 7}
 ```
 
-- `link`: the dashboard's Social plan tab (`<dashboard URL>#social`), or the plan page URL when there's no Social plan tab, for copy, script and calendar items; the design
-  canvas URL for items that are only designs (e.g. the market stats graphic).
+- `link`: the dashboard's Social plan tab (`<dashboard URL>#social`) for every
+  item you produced, design-only ones included (the tab links to the design
+  canvas). The review queue groups every item whose link ends in `#social`
+  into one "Social media plan" card per month, with Approve all and Request
+  changes, so the agent reviews the plan once instead of item by item. Use the
+  plan page URL only when the dashboard has no Social plan tab.
 - Set `status` to `review` on every item you produced, counted items
   included.
 - **Never set `done`.** On counted items it counts posts that are live;

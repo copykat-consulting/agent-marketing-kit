@@ -721,8 +721,13 @@ select.pill{width:132px}
     if (!S.db || !S.itemsLoaded || (!S.items.length && !S.nextItems.length)) { el.innerHTML = ""; return; }
     const ro = !S.canWrite || S.writeRefused;
     const pool = S.ym === todayYM ? [...S.items, ...S.nextItems] : S.items;
-    const rev = pool.filter((i) => i.status === "review" && !isDone(i));
-    const back = pool.filter((i) => i.status === "changes" && !isDone(i));
+    /* social-review v1 */
+    const isSoc = (i) => /#social$/.test(String(i.link || ""));
+    const groupSoc = (list) => { const g = {}; list.filter(isSoc).forEach((i) => { (g[i._ym] = g[i._ym] || []).push(i); }); return Object.keys(g).sort().map((ym) => ({ ym, items: g[ym] })); };
+    const revAll = pool.filter((i) => i.status === "review" && !isDone(i));
+    const backAll = pool.filter((i) => i.status === "changes" && !isDone(i));
+    const rev = revAll.filter((i) => !isSoc(i)), back = backAll.filter((i) => !isSoc(i));
+    const revG = groupSoc(revAll), backG = groupSoc(backAll);
     const last = (i) => { const t = (i.thread || []).filter((m) => m.text); return t.length ? t[t.length - 1] : null; };
     const card = (i, lane) => {
       const l = last(i), link = safeUrl(i.link), Y = `data-ym="${esc(i._ym)}"`, rq = S.reqFor === i.id + "|" + i._ym;
@@ -734,16 +739,28 @@ select.pill{width:132px}
             : `<button class="btn sm" type="button" data-act="resubmit" data-id="${esc(i.id)}" ${Y}>Mark ready for review</button>`}</div>
         ${rq ? `<textarea id="rq-note" rows="2" maxlength="1000" placeholder="What should change?"></textarea><div class="acts"><button class="btn sm primary" type="button" data-act="sendback" data-id="${esc(i.id)}" ${Y}>Send back</button><button class="btn sm ghost" type="button" data-act="req-cancel">Cancel</button></div>` : ""}</div>`;
     };
+    const gcard = (g, lane) => {
+      const ids = g.items.map((i) => i.id).join(","), Y = `data-ym="${esc(g.ym)}"`, I = `data-ids="${esc(ids)}"`, rq = S.reqFor === "social|" + g.ym;
+      const notes = g.items.map(last).filter(Boolean).sort((a, b) => String(a.at || "").localeCompare(String(b.at || ""))), l = notes.length ? notes[notes.length - 1] : null;
+      return `<div class="rv"><div class="rv-top"><b>Social media plan</b><span>${esc(MONTHS[parseYM(g.ym).m])} · ${g.items.length} ${g.items.length === 1 ? "piece" : "pieces"}</span></div>
+        <div class="last">${esc(g.items.map((i) => i.title).join(" · "))}</div>
+        ${l ? `<div class="last">${esc(nameOf(l.by))}: ${esc(l.text)}</div>` : ""}
+        <div class="acts"><button class="btn sm" type="button" data-act="open-social" ${Y}>Open the social plan</button>
+          ${ro ? "" : lane === "rev"
+            ? (rq ? "" : `<button class="btn sm ok" type="button" data-act="approve-group" ${I} ${Y}>Approve all</button><button class="btn sm" type="button" data-act="req-group" ${Y}>Request changes</button>`)
+            : `<button class="btn sm" type="button" data-act="resubmit-group" ${I} ${Y}>Mark ready for review</button>`}</div>
+        ${rq ? `<textarea id="rq-note" rows="2" maxlength="1000" placeholder="What should change? Name the post numbers if it's specific ones."></textarea><div class="acts"><button class="btn sm primary" type="button" data-act="sendback-group" ${I} ${Y}>Send back</button><button class="btn sm ghost" type="button" data-act="req-cancel">Cancel</button></div>` : ""}</div>`;
+    };
     const teamBar = S.teamEdit && !ro
       ? `<form class="team-form" id="teamForm"><label>Agent<input id="t-agent" maxlength="40" value="${esc(S.team.agent)}"></label><label>Assistant<input id="t-assistant" maxlength="40" value="${esc(S.team.assistant)}"></label><button class="btn sm primary" type="submit">Save</button><button class="btn sm ghost" type="button" data-act="team-cancel">Cancel</button></form>`
       : `<div class="team-bar">Team: <span class="owner" style="--o:var(--accent)">${esc(teamName("agent"))}</span> and <span class="owner" style="--o:var(--review)">${esc(teamName("assistant"))}</span>${ro ? "" : `<button class="lnk" type="button" data-act="team-edit">Edit names</button>`}</div>`;
     el.innerHTML = `<div style="display:grid;gap:10px">
       <div class="sec-h"><h2>Review queue</h2>${teamBar}</div>
       <div class="flow">
-        <div class="card lane" style="--lc:var(--review)"><div class="lane-h"><span class="n num">${rev.length}</span><h3>Ready for review</h3></div>
-          ${rev.length ? rev.map((i) => card(i, "rev")).join("") : `<p class="none">Nothing waiting. When a draft is done, set its status to “Ready for review” and it lands here.</p>`}</div>
-        <div class="card lane" style="--lc:var(--bad)"><div class="lane-h"><span class="n num">${back.length}</span><h3>Sent back for changes</h3></div>
-          ${back.length ? back.map((i) => card(i, "back")).join("") : `<p class="none">Nothing needs changes right now.</p>`}</div>
+        <div class="card lane" style="--lc:var(--review)"><div class="lane-h"><span class="n num">${rev.length + revG.length}</span><h3>Ready for review</h3></div>
+          ${rev.length + revG.length ? revG.map((g) => gcard(g, "rev")).join("") + rev.map((i) => card(i, "rev")).join("") : `<p class="none">Nothing waiting. When a draft is done, set its status to “Ready for review” and it lands here.</p>`}</div>
+        <div class="card lane" style="--lc:var(--bad)"><div class="lane-h"><span class="n num">${back.length + backG.length}</span><h3>Sent back for changes</h3></div>
+          ${back.length + backG.length ? backG.map((g) => gcard(g, "back")).join("") + back.map((i) => card(i, "back")).join("") : `<p class="none">Nothing needs changes right now.</p>`}</div>
       </div></div>`;
     if (S.reqFor) $("rq-note")?.focus({ preventScroll: true });
   }
@@ -1064,6 +1081,11 @@ select.pill{width:132px}
       }
       return;
     }
+    if (act === "open-social") { if (b.dataset.ym && b.dataset.ym !== S.ym) setMonth(b.dataset.ym); setPage("social"); window.scrollTo?.(0, 0); return; }
+    if (act === "approve-group") { (b.dataset.ids || "").split(",").filter(Boolean).forEach((x) => addToThread(x, "approved", "Approved", "approved", b.dataset.ym)); return; }
+    if (act === "req-group") { S.reqFor = "social|" + b.dataset.ym; renderFlow(); return; }
+    if (act === "sendback-group") { const t = ($("rq-note")?.value || "").trim() || "Please revise."; S.reqFor = null; (b.dataset.ids || "").split(",").filter(Boolean).forEach((x) => addToThread(x, "changes", t, "changes", b.dataset.ym)); return; }
+    if (act === "resubmit-group") { const ymv = b.dataset.ym; (b.dataset.ids || "").split(",").filter(Boolean).forEach((x) => write(() => S.db.collection("months/" + ymv + "/items").doc(x).update({ status: "review" }))); return; }
     if (act === "approve") { addToThread(id, "approved", "Approved", "approved", b.dataset.ym); return; }
     if (act === "req") { S.reqFor = id + "|" + b.dataset.ym; renderFlow(); return; }
     if (act === "req-cancel") { S.reqFor = null; renderFlow(); return; }
