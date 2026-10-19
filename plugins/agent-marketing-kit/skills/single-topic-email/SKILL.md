@@ -28,7 +28,7 @@ Talk to the agent in plain language. Don't mention file names or HTML tags.
 2. Fill every `[BRACKETED TOKEN]`. The design tokens at the top of the `<style>` block match the newsletter's.
 3. **Headline:** the blog's title or its main question, shortened to fit on two lines.
 4. **Opening:** two or three sentences in the agent's voice, first person: why this topic, why now, and a personal detail from the Brand Brain if it fits naturally.
-5. **Points:** three to five, following the blog's sections in order. Each gets a short heading and two or three sentences with that section's most useful fact or tip. Rewrite in the agent's voice; don't paste paragraphs from the post. Keep it short: the email should take about a minute to read.
+5. **Points:** three to five, following the blog's sections in order. Each gets a short heading and two or three sentences with that section's most useful fact or tip. Rewrite in the agent's voice; don't paste paragraphs from the post. Keep it short: the email should take about a minute to read. If any point has a statistic, fill the sources line under the points with each publisher and month; otherwise delete it. Repurpose the blog's facts, not its phrasing: rewrite catchy lines ("Not what you paid. Not what a neighbor guessed.") rather than lifting them, and drop phrases the Brand Brain bans even when the blog uses them.
 6. **Pull quote** (optional): one line worth repeating. Then one line on what else the full post covers, the "Read the Full Post" button, and their sign-off.
 7. **Closing panel:** their standard CTA, calm and never urgent.
 8. **Compliance and footer:** same as their newsletter. Keep the ESP bar with its merge tags.
