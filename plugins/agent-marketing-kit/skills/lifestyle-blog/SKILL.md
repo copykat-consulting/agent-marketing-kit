@@ -38,7 +38,7 @@ Show the agent a short list of what you changed and why (banned words removed, n
 Copy `assets/template.html` to a new file named `<Agent>_Lifestyle_Blog_<Month><Year>.html` and:
 
 - Set the brand variables and fonts (Step 1.3).
-- **Kicker:** a short category (For Sellers, Life Inland, Horse Property, Things to Do) and the month.
+- **Kicker:** a short category (For Sellers, Things to Do, Neighborhood Spotlight) and the month.
 - **Headline:** the post's title, or a sharper version. The website's own title field shows the post title too.
 - **Intro:** the opening as `<p class="lede">`, then any second paragraph.
 - **One section block per section of their post**, in their order, using only what each section needs: paragraphs, `ul.checklist` for tips or a checklist, `ol.steps` for steps in order, `div.spot` for a place, business or trail, `div.insight` for one practical takeaway, and an image box where there's a real hosted photo.

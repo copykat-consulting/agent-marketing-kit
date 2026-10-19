@@ -24,7 +24,7 @@ Talk to the agent in plain language. Don't mention file names or HTML tags.
 
 ## Build it
 
-1. Copy `assets/template.html` to a new file named for the agent and month (for example `Claire_Morgan_Single_Topic_Email_November2026.html`).
+1. Copy `assets/template.html` to a new file named for the agent and month (for example `Jane_Smith_Single_Topic_Email_November2026.html`).
 2. Fill every `[BRACKETED TOKEN]`. The design tokens at the top of the `<style>` block match the newsletter's.
 3. **Headline:** the blog's title or its main question, shortened to fit on two lines.
 4. **Opening:** two or three sentences in the agent's voice, first person: why this topic, why now, and a personal detail from the Brand Brain if it fits naturally.

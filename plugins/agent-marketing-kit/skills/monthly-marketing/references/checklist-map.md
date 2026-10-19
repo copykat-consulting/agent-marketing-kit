@@ -58,7 +58,7 @@ Read the item, then write one pinned update:
    "link": "<artifact URL or live page, if the piece has one>",
    "thread": [<existing thread entries…>,
      {"at": "<ISO time>", "by": "claude", "kind": "note",
-      "text": "Draft ready. Saved in your Claude Project as claude/newsletters/Claire_Morgan_Newsletter_November2026.html"}]
+      "text": "Draft ready. Saved in your Claude Project as claude/newsletters/Jane_Smith_Newsletter_November2026.html"}]
  },
  "if_version": 4}
 ```
