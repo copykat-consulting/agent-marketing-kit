@@ -1,0 +1,158 @@
+<!--
+============================================================
+  LIFESTYLE BLOG — MASTER TEMPLATE
+============================================================
+  Built to match the Market Report Blog: same CSS, same brand
+  variables, same fonts. If this agent already has a market report
+  post, copy its brand variables and font link exactly.
+  1. Edit the brand variables at the top of the style block.
+  2. Replace every [BRACKETED] placeholder.
+  3. Repeat the section block once per section of the agent's post.
+  4. Put real, hosted photo URLs into the image boxes, or delete them.
+  All CSS is scoped under .mr so it can't clash with the website.
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[POST TITLE] | [AGENT/TEAM NAME]</title>
+
+<!-- Swap in the agent's brand fonts here if different from Playfair/Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.mr *,.mr *::before,.mr *::after{box-sizing:border-box;margin:0;padding:0}
+/* ============================================================
+   BRAND VARIABLES — edit these for the agent
+   ============================================================ */
+.mr{
+  --orange:#2a6f97;        /* [AGENT PRIMARY ACCENT COLOR] (variable name kept for simplicity) */
+  --orange-dark:#1f5576;   /* darker shade of accent, for hover/depth */
+  --black:#111111;         /* [AGENT DARK/HEADER COLOR — often near-black or a brand navy] */
+  --neutral-900:#1a1a1a;
+  --neutral-700:#3d3d3d;
+  --neutral-500:#737373;
+  --neutral-200:#e0ddd8;
+  --neutral-100:#f0ede8;
+  --neutral-50:#faf9f7;    /* page background */
+  --white:#ffffff;
+  --up:#2a7a3b;            /* keep consistent across clients — green = growth */
+  --down:#c0392b;          /* keep consistent across clients — red = decline */
+  --flat:#6b7280;          /* keep consistent across clients — gray = flat/neutral */
+}
+.mr{font-family:'Inter',sans-serif;background:var(--neutral-50);color:var(--neutral-900);line-height:1.7;font-size:17px}
+.mr .wrap{max-width:720px;margin:0 auto;padding:64px 24px 80px}
+/* ---------- Image placeholder ---------- */
+.mr .img-slot{width:100%;min-height:240px;background:var(--neutral-100);border:1.5px dashed var(--orange);border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin:32px 0;padding:24px;overflow:hidden}
+.mr .img-slot .ico{font-size:28px;opacity:.35}
+.mr .img-slot p{font-size:12px;font-weight:600;color:var(--neutral-500);text-align:center;text-transform:uppercase;letter-spacing:.06em;margin:0}
+.mr .img-slot img{width:100%;height:100%;min-height:240px;object-fit:cover;display:block;border-radius:3px}
+.mr .img-slot:has(img){border:none;padding:0;background:none}
+/* ---------- Typography ---------- */
+.mr h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,26px);font-weight:600;color:var(--black);margin:52px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--orange);line-height:1.25}
+.mr p{margin-bottom:22px;font-weight:300;color:var(--neutral-700);font-size:17px}
+/* ---------- Callout boxes ---------- */
+.mr .insight{background:var(--white);border-left:3px solid var(--orange);padding:18px 22px;margin:16px 0 24px;border-radius:0 3px 3px 0;box-shadow:inset 0 0 0 1px var(--neutral-200)}
+.mr .insight p{margin:0;font-size:15px;font-weight:400;color:var(--neutral-900)}
+.mr .insight p strong{color:var(--orange)}
+.mr .pull{border-left:3px solid var(--orange);padding:22px 26px;background:var(--white);margin:36px 0;border-radius:0 3px 3px 0;box-shadow:inset 0 0 0 1px var(--neutral-200)}
+.mr .pull p{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--black);margin:0;line-height:1.5;font-weight:400}
+.mr .source{margin-top:40px;padding:14px 18px;background:var(--neutral-100);border-radius:3px;font-size:12px;color:var(--neutral-500);text-align:center;letter-spacing:.03em}
+/* ---------- CTA ---------- */
+.mr .cta{background:var(--black);border-radius:4px;padding:52px 44px;margin-top:64px;text-align:center;border-top:3px solid var(--orange)}
+.mr .cta h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--white);margin-bottom:14px;font-weight:600}
+.mr .cta p{color:rgba(255,255,255,.6);font-size:16px;margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;font-weight:300}
+.mr .cta-btn{display:inline-block;background:var(--orange);color:var(--white);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:15px 34px;border-radius:3px;text-decoration:none}
+.mr .cta-sub{margin-top:18px;font-size:13px;color:rgba(255,255,255,.4)}
+.mr .cta-sub a{color:var(--orange);text-decoration:none}
+@media(max-width:600px){
+.mr .cta{padding:36px 22px}
+}
+/* Unique in-page headline (different from the blog post's own title field) */
+.mr h1.mr-h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,36px);font-weight:600;color:var(--black);line-height:1.2;margin:0 0 24px}
+/* Website builders often override centering and margins on buttons; this keeps the CTA centered */
+.mr .cta-btn-wrap{display:flex!important;justify-content:center!important;margin:0 0 6px!important}
+/* ---------- Lifestyle blog additions ---------- */
+.mr .kicker{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin:0 0 14px}
+.mr h3{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:var(--black);margin:34px 0 10px;line-height:1.3}
+.mr .lede{font-size:19px;font-weight:400;color:var(--neutral-900);line-height:1.65}
+.mr ul.checklist,.mr ol.steps{margin:8px 0 26px;padding:0;list-style:none;counter-reset:step}
+.mr ul.checklist li,.mr ol.steps li{position:relative;padding:14px 0 14px 40px;border-bottom:1px solid var(--neutral-200);font-size:17px;font-weight:300;color:var(--neutral-700);line-height:1.6}
+.mr ul.checklist li:last-child,.mr ol.steps li:last-child{border-bottom:none}
+.mr ul.checklist li::before{content:"";position:absolute;left:6px;top:21px;width:14px;height:8px;border-left:2px solid var(--orange);border-bottom:2px solid var(--orange);transform:rotate(-45deg)}
+.mr ol.steps li{counter-increment:step}
+.mr ol.steps li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:'Playfair Display',serif;font-size:18px;color:var(--orange)}
+.mr ul.checklist li strong,.mr ol.steps li strong{font-weight:600;color:var(--neutral-900)}
+.mr .spot{background:var(--white);box-shadow:inset 0 0 0 1px var(--neutral-200);border-radius:3px;padding:22px 24px;margin:18px 0 26px}
+.mr .spot h3{margin:0 0 6px}
+.mr .spot .meta{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--neutral-500);margin-bottom:10px}
+.mr .spot p{margin:0 0 10px;font-size:16px}
+.mr .spot p:last-child{margin:0}
+.mr .compliance{margin-top:24px;font-size:11px;color:var(--neutral-500);text-align:center;letter-spacing:.08em;text-transform:uppercase;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="mr">
+<div class="wrap">
+
+  <p class="kicker">[CATEGORY — e.g. For Sellers, Life Inland, Horse Property] &nbsp;·&nbsp; [MONTH YEAR]</p>
+  <h1 class="mr-h1">[IN-PAGE HEADLINE — the blog's own title, or a sharper version of it. The website's title field shows the post title; this can match it or vary it.]</h1>
+
+  <div class="img-slot"><span class="ico">📷</span><p>Add photo — hero image for this post</p></div>
+
+  <!-- INTRO: the agent's opening, edited into their voice. First paragraph uses class="lede". -->
+  <p class="lede">[OPENING PARAGRAPH — the hook, in the agent's voice.]</p>
+  <p>[SECOND INTRO PARAGRAPH, if the blog has one.]</p>
+
+  <!-- ============================================================
+       REPEAT ONE SECTION BLOCK PER SECTION OF THE AGENT'S BLOG,
+       in their order, using their headings (tightened if needed).
+       Use only the pieces each section needs:
+       - plain paragraphs
+       - <ul class="checklist"> for tips or a checklist
+       - <ol class="steps"> for steps in order
+       - <div class="spot"> for a place, business or trail (name, meta line, 1-3 short paragraphs)
+       - <div class="insight"> for one practical takeaway
+       - an image slot when there's a real hosted photo for it
+       ============================================================ -->
+  <h2>[SECTION HEADING]</h2>
+  <p>[Section paragraph(s).]</p>
+
+  <ul class="checklist">
+    <li><strong>[Tip label].</strong> [Tip text.]</li>
+    <li><strong>[Tip label].</strong> [Tip text.]</li>
+  </ul>
+
+  <div class="spot">
+    <h3>[PLACE NAME]</h3>
+    <div class="meta">[TOWN · TYPE, e.g. Fallbrook · Winery]</div>
+    <p>[What it is and why the agent likes it.]</p>
+  </div>
+
+  <div class="insight"><p><strong>[My tip / For sellers / For buyers]:</strong> [One practical takeaway.]</p></div>
+  <!-- END repeatable section block -->
+
+  <div class="pull"><p>"[One line from the post worth repeating, in the agent's voice.]"</p></div>
+
+  <h2>[CLOSING HEADING — e.g. "The Bottom Line" or the agent's own]</h2>
+  <p>[Closing paragraph: what the reader should take away and do next.]</p>
+
+  <!-- SOURCES: keep only when the post cites statistics; one line per source, publisher + month. Otherwise delete. -->
+  <div class="source">Sources: [PUBLISHER, MONTH YEAR]; [PUBLISHER, MONTH YEAR].</div>
+
+  <div class="cta">
+    <h3>[CTA HEADLINE — the agent's standard call to action]</h3>
+    <p>[1-2 calm sentences in their voice.]</p>
+    <div class="cta-btn-wrap"><a href="[CONTACT PAGE, BOOKING LINK OR mailto: WITH A SUBJECT]" class="cta-btn">[BUTTON TEXT]</a></div>
+    <p class="cta-sub">[PHONE] &nbsp;·&nbsp; <a href="[EMAIL OR SITE LINK]">[EMAIL OR SITE, display text]</a></p>
+  </div>
+
+  <!-- COMPLIANCE: exactly as the Brand Brain requires; delete if their website footer already carries it. -->
+  <div class="compliance">[AGENT NAME] | [LICENSE LABEL]: [NUMBER] &nbsp;·&nbsp; [BROKERAGE] | [LICENSE LABEL]: [NUMBER]<br>Equal Housing Opportunity</div>
+
+</div>
+</div>
+</body>
+</html>
