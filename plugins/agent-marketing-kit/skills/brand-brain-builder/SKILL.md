@@ -1,6 +1,6 @@
 ---
 name: brand-brain-builder
-description: Interviews a real estate agent step by step to build their "Brand Brain," one reference document covering their voice and tone, audience, offer, visual identity, compliance and on-brand examples, so every future marketing task (blogs, emails, newsletters, social posts) sounds like them and follows their brand. Use this whenever an agent says they want to build or update their brand brain, brand guide, brand voice, voice guide, or "something I can give Claude so it sounds like me," or when they ask where to start with marketing content, or share brand assets, past emails, posts or reviews to turn into a reusable reference. Trigger even if they never say "Brand Brain."
+description: Step 1 of 3 in the agent marketing system. Interviews a real estate agent step by step, inside their Claude Project, to build their "Brand Brain," one reference document covering their voice and tone, audience, offer, visual identity, compliance and on-brand examples, so every future marketing task (blogs, emails, newsletters, social posts) sounds like them and follows their brand. Use this whenever an agent says they want to build or update their brand brain, brand guide, brand voice, voice guide, or "something I can give Claude so it sounds like me," or when they ask where to start with marketing content, or share brand assets, past emails, posts or reviews to turn into a reusable reference. Trigger even if they never say "Brand Brain."
 ---
 
 # Brand Brain Builder
@@ -8,6 +8,23 @@ description: Interviews a real estate agent step by step to build their "Brand B
 Helps a real estate agent build their Brand Brain: one reference document about their business that they attach whenever they ask Claude to write marketing for them, so everything sounds like them and follows their brand.
 
 The agent is doing this for themselves. Talk to them as a friendly, sharp collaborator. Use "you" and "your." Keep it moving, and don't lecture about branding.
+
+## The three steps
+
+This is **Step 1 of 3**. Each step happens in the same Claude Project:
+
+1. **Build your Brand Brain** (this skill).
+2. **Set up your Marketing Command Center**, the dashboard that tracks every piece of the month.
+3. **Create your monthly marketing**, a guided walk through the whole month, every month.
+
+Mention this in one line at the start, so they know where they are.
+
+## Before you start: the Project
+
+Everything works best inside one Claude Project for the agent's marketing, because the Brand Brain, the dashboard link and every month's content live there and each step reads them.
+- If you can see a Project attached to this chat, work there.
+- If there isn't one, ask them to create a Project (for example "<Their Name> Marketing"), open a new chat inside it and say "Build my Brand Brain" again. Offer to carry on here if they'd rather, and give them the file at the end to add to a Project later.
+- If the Project already has a Brand Brain, go to "Updating an existing Brand Brain" below.
 
 ## How the interview runs
 
@@ -22,7 +39,8 @@ The full question list for each step is in `references/worksheet.md`.
 ### Step 1 of 5: Raw brand assets
 
 Ask them to upload or paste anything that already exists:
-- logo files, brand guidelines or color palette
+- logo files, brand guidelines or color palette. Ask for each version they have: main logo, monogram or small mark, a light (white) version for photos, a co-branded lockup with their brokerage, and hosted links (ImageKit, their website) if they use them in emails
+- a headshot and any photos of them they like (later steps use these on the postcard and social posts)
 - 3–5 past emails or newsletters
 - 5–10 past social posts
 - their website's About page and homepage text
@@ -106,13 +124,11 @@ Follow the structure in `references/template.md` exactly:
 
 ## Delivery
 
-Give them the finished Brand Brain as a file they can download, named **"[Agent-Name]-Brand-Brain"** (a Word document or Markdown file; ask which they prefer if it isn't obvious, default to Markdown). If you can't create a file, put the entire document in one code block they can copy.
-
-Then remind them to:
-1. Add the file to their Claude Project's knowledge, and
-2. Set the project instructions (for example: "Always use my Brand Brain in this project's knowledge when writing anything for me"), so Claude uses their Brand Brain automatically in every chat in that project.
-
-Finally, list the MISSING items and offer to update the file as soon as they have answers. Mention that the Brand Voice Editor skill can run any draft through their Brand Brain.
+1. **Save it to their Project.** If you can write to the Project, save it there as `[Agent-Name]-Brand-Brain.md` and say so. Otherwise give them the file (Markdown by default, or Word if they ask), and ask them to add it to the Project's knowledge.
+2. **Make Claude use it every time.** Ask them to paste this into the Project's instructions (Project settings → Instructions): "Always use my Brand Brain in this project when writing anything for me." They can also paste the whole Brand Brain there, which makes it load in every chat.
+3. **Keep their files together.** Ask them to add their logo files, co-branded lockup and headshot to the Project too, so the dashboard, postcard and social designs can use them without asking again.
+4. **List the MISSING items** and offer to update the Brand Brain as soon as they have answers.
+5. **Point to Step 2:** "Next, let's set up your Marketing Command Center. Just say: Set up my Marketing Command Center." Keep it to one line.
 
 ## Updating an existing Brand Brain
 

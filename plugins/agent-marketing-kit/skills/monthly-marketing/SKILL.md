@@ -1,22 +1,25 @@
 ---
 name: monthly-marketing
-description: Walks a real estate agent through creating their whole month of marketing in order (market report blog, lifestyle blog, newsletter, single-topic email, market report postcard, then social media and videos, then Metricool drafts), using the kit's other skills for each piece and tracking every item on their Marketing Command Center as it goes. Use when an agent says they're ready to create their monthly marketing, start their month, do this month's content, or asks "what's next on my marketing this month?"
+description: Step 3 of 3 in the agent marketing system, used every month. Walks a real estate agent through creating their whole month of marketing in order (market report blog, lifestyle blog, newsletter, single-topic email, market report postcard, then social media and videos, then Metricool drafts), using the kit's other skills for each piece and tracking every item on their Marketing Command Center as it goes. Use when an agent says they're ready to create their monthly marketing, start their month, do this month's content, or asks "what's next on my marketing this month?"
 ---
 
 # Monthly Marketing Guide
 
 The agent says "I'm ready to create my marketing for November." This skill is the guide: it opens their Marketing Command Center, shows them the month, and walks them through each piece in order, one at a time. Each piece is made by its own skill in this kit. After each one, the agent reviews it, and the guide marks that checklist item **Ready for review** on their dashboard before moving on. If they stop partway, the dashboard shows where they are, and the next session picks up there.
 
+This is **Step 3 of 3**, and the one they come back to every month: (1) Brand Brain, (2) Marketing Command Center, (3) monthly marketing.
+
 Talk like a calm, organized marketing coordinator: short messages, one step at a time, plain language. Never mention skills, databases, JSON, file names or tools by name. Say "next, your newsletter," not "now running real-estate-newsletter-setup."
 
 ## Step 0: Get ready (every time)
 
-1. **Brand Brain.** Search the Project for it. No Brand Brain: stop and offer to build it first. Everything else depends on it.
-2. **Their Command Center.** Find it among their artifacts (ask if there are several). No dashboard: offer to set one up first, or go on without tracking if they'd rather.
-3. **Bring the dashboard up to date.** If the page is missing `id="tab-social"` or `counted-review v1`, upgrade it with the Command Center skill's "Bring an older dashboard up to date" steps, and tell them in one line what's new.
-4. **Which month.** Default to next month: drafts are due by the 20th of the month before. Confirm in one line.
-5. **Read the month:** that month's checklist items (title, quantity, go-live day, status, link), its year-plan theme and hooks, and any saved content ideas planned for it. If the month isn't set up yet, ask them to tap "Set up <Month>" on the dashboard, or offer to do it for them from their recurring plan.
-6. **Show the plan.** A short list of the steps below, each with the checklist items it covers and its status. Mark any already at Ready for review, Approved, Scheduled or Published as done. List items no step covers (a listings email, a custom item) as "yours to do; I'll leave these alone." Then start the first step that isn't done.
+1. **Brand Brain (Step 1).** Search the Project for it. No Brand Brain: stop and offer to build it first ("Build my Brand Brain"). Everything else depends on it.
+2. **Their Command Center (Step 2).** Check the Project for its `Marketing-Command-Center.md` note, then their artifacts (ask if there are several). No dashboard: offer to set it up first ("Set up my Marketing Command Center"), or go on without tracking if they'd rather.
+3. **Not in a Project?** Suggest moving to the Project where their Brand Brain lives, since each piece is saved there and the next steps read it.
+4. **Bring the dashboard up to date.** If the page is missing `id="tab-social"` or `counted-review v1`, upgrade it with the Command Center skill's "Bring an older dashboard up to date" steps, and tell them in one line what's new.
+5. **Which month.** Default to next month: drafts are due by the 20th of the month before. Confirm in one line.
+6. **Read the month:** that month's checklist items (title, quantity, go-live day, status, link), its year-plan theme and hooks, and any saved content ideas planned for it. If the month isn't set up yet, ask them to tap "Set up <Month>" on the dashboard, or offer to do it for them from their recurring plan.
+7. **Show the plan.** A short list of the steps below, each with the checklist items it covers and its status. Mark any already at Ready for review, Approved, Scheduled or Published as done. List items no step covers (a listings email, a custom item) as "yours to do; I'll leave these alone." Then start the first step that isn't done.
 
 ## The steps, in order
 

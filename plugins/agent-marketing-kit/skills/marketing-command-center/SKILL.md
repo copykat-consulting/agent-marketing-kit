@@ -1,6 +1,6 @@
 ---
 name: marketing-command-center
-description: Sets up a real estate agent's Marketing Command Center, a private dashboard with a monthly content checklist, review and approval workflow, social and Google Business performance from Metricool, a visual content ideas board and a 12-month year plan. Use when an agent asks to set up, build, rebuild or customize their Marketing Command Center, content dashboard or marketing tracker.
+description: Step 2 of 3 in the agent marketing system. Sets up a real estate agent's Marketing Command Center, a private dashboard with a monthly content checklist, review and approval workflow, social and Google Business performance from Metricool, a visual content ideas board and a 12-month year plan. Use when an agent asks to set up, build, rebuild or customize their Marketing Command Center, content dashboard or marketing tracker.
 ---
 
 # Marketing Command Center setup
@@ -8,6 +8,14 @@ description: Sets up a real estate agent's Marketing Command Center, a private d
 You are setting up a Marketing Command Center for a real estate agent or team. The finished product is ONE private, published artifact page built from `assets/template.html`, with the agent's own plan, team names, year themes and style stored in that artifact's database. Everything the agent sees comes from that database; never write their data into the HTML.
 
 Speak to the agent in plain, friendly language. Most agents are not technical: don't mention databases, documents, JSON, capabilities or file names.
+
+This is **Step 2 of 3**: (1) Brand Brain, (2) Marketing Command Center, (3) monthly marketing. Say so in one line at the start.
+
+## Step 0: Start from their Brand Brain
+
+Look for their Brand Brain in this chat or the Project (search for "Brand Brain").
+- **Found:** read it and use it to pre-fill the interview: their name and business name, assistant's name if listed, brand colors and fonts (pick the closest built-in font pairing), communities and seasonal topics for the year plan, the services they offer (to shape the checklist), and any channels they don't use (drop those items from the plan). Show what you pre-filled and ask them to confirm or change it, instead of asking each question from scratch.
+- **Not found:** suggest doing Step 1 first ("Build my Brand Brain"), since everything Claude writes later depends on it. If they'd rather set up the dashboard first, carry on with the interview below.
 
 ## Step 1: Check the setup they need
 
@@ -62,6 +70,8 @@ Do not create content ideas, review notes or statuses for them. Those are theirs
 
 ## Step 5: Hand it over
 
+Save a short note to the Project (if you can write to it) named `Marketing-Command-Center.md` with the dashboard's link and the date it was set up, so Step 3 and later chats can find it. Otherwise ask the agent to keep the link handy.
+
 Tell the agent, briefly:
 - The page is private to them. To bring in an assistant, use the page's Share menu, invite them by email with **Can edit**; the assistant needs their own Claude account. (The Performance page and "Fill in from screenshot" use the agent's own Claude and connectors, so those work for the agent only.)
 - How it works:
@@ -72,6 +82,7 @@ Tell the agent, briefly:
   - **Year plan:** monthly themes and topics; tap Edit on any month.
   - **Fonts** button: try other fonts live.
   - Each new month: tap "Set up <Month>" to load the recurring items.
+- **Then point to Step 3:** "You're ready for Step 3. Whenever you want to start a month, say: I'm ready to create my marketing for <next month>. I'll walk you through every piece and check it off here as we go." Keep it to a line or two.
 
 ## Changing things later
 
