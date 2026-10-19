@@ -26,7 +26,7 @@ graphics. Lots of breathing room.
   still look bright and rich, never muddy.
 - **Text:** white or the brand's lightest neutral.
   - Label (eyebrow): small, all caps, wide letter spacing (about 0.25em),
-    in the body font. E.g. "FALLBROOK · NOVEMBER 2026".
+    in the body font. E.g. "WESTLAKE · NOVEMBER 2026".
   - Headline: the brand's headline font, large, sentence case, eight words
     or fewer. Never the caption. No phone numbers, prices or hashtags.
   - Optional hairline rule between label and headline, in a light accent.
@@ -73,7 +73,7 @@ market report has them.
 ## Canvas layout
 
 - One artboard per post or slide, named with its post number and short
-  title ("Post 04, Horseable checklist"). Carousel slides sit in one row
+  title ("Post 04, First-home checklist"). Carousel slides sit in one row
   per carousel.
 - Rows grouped by week in posting order, with a title note for each week
   ("Week 1, Nov 2–8").
