@@ -42,4 +42,4 @@ Talk to the agent in plain language. Don't mention file names or HTML tags.
 
 ## If there's a Marketing Command Center
 
-Set the month's single-topic email item to Ready for review with a note of where the email is. Follow the Command Center's data rules: read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published.
+Set the month's single-topic email item to Ready for review with a note of where the email is. Publish a review page for it and put that link on the item, following the monthly guide's "Review pages" steps (`../monthly-marketing/references/checklist-map.md`), so the agent can click straight into it from the dashboard. Follow the Command Center's data rules: read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published.

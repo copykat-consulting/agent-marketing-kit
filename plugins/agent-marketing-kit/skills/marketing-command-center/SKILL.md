@@ -89,6 +89,7 @@ Tell the agent, briefly:
 
 - **Plan, team names, themes, font:** the agent can change most of these on the page itself. If they ask you, update the matching document in the artifact's database (read it first and pass its version).
 - **Colors or layout:** read the artifact, edit its HTML and republish to the same artifact.
+- **Review pages:** every blog, email and postcard on the checklist gets a clickable review page so the agent can open it from its card. `scripts/make_review_page.py` builds it from the finished file; the Monthly Marketing skill's checklist reference has the steps.
 - **Bring an older dashboard up to date:** dashboards built from an older template are missing newer features (the Social plan tab, review status on counted items, the single social media card in the review queue, notes from Claude labeled "Claude"). Read the artifact, save its page to a file (drop the first line if it is the publish wrapper, which starts with `<!doctype html><html><head><meta charset=utf8>`), run `python3 scripts/upgrade_dashboard.py <file>`, check the script with `node --check`, and republish to the same artifact without changing its capabilities. It keeps the agent's colors, fonts and names, and skips anything already there, so it's safe to run on any dashboard. Tell the agent in a line or two what's new.
 - **Changing the draft day:** in the HTML, find `S.draftDay = 20;` and change the number, then republish.
 

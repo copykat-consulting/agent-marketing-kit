@@ -84,4 +84,4 @@ With a lockup, use `lockupOnDark` and `lockupOnLight` and leave out the separate
 
 ## If there's a Marketing Command Center
 
-Set the month's postcard item (titled "Market report postcard" or "Direct mail postcard") to Ready for review with a note of where the PDF is. Follow the Command Center's data rules: read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published.
+Set the month's postcard item (titled "Market report postcard" or "Direct mail postcard") to Ready for review with a note of where the PDF is. Publish a review page for it and put that link on the item, following the monthly guide's "Review pages" steps (`../monthly-marketing/references/checklist-map.md`), so the agent can click straight into it from the dashboard. Follow the Command Center's data rules: read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published.
