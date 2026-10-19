@@ -138,3 +138,7 @@ building (often the person you're talking to).
 See `references/subject-lines-and-preview-text.md`. Offer 3-5 subject lines
 under ~45 characters, plus preview text that teases 2-3 concrete things
 inside the issue and doesn't repeat the opening sentence.
+
+## If there's a Marketing Command Center
+
+Whenever this skill runs, on its own or from the monthly guide, mark it on the agent's dashboard: set the month's monthly newsletter item to Ready for review with a note saying where the file is saved (and its link, if it's live or published). Read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published. Save the file to the Project too, so the other monthly pieces can build on it.

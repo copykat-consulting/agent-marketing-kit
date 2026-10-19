@@ -51,3 +51,7 @@ At the end of the first post, offer to save this profile (as a note or their own
 - **Keep text generously sized** (body around 17px). Many readers are older homeowners; don't shrink text for density.
 - **Tables stay 4 columns** (Metric, last year, this year, change). On narrow content areas, don't add extra columns; split into another table instead.
 - **No price-range breakdowns unless the agent supplies that data** (e.g. from an MLS analytics tool). Free association reports usually don't include it, and guessed bands are not acceptable.
+
+## If there's a Marketing Command Center
+
+Whenever this skill runs, on its own or from the monthly guide, mark it on the agent's dashboard: set the month's market report blog item to Ready for review with a note saying where the file is saved (and its link, if it's live or published). Read the item first, write pinned to its version, and leave it alone if it's already Approved, Scheduled or Published. Save the file to the Project too, so the other monthly pieces can build on it.
