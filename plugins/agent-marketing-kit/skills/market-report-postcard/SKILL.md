@@ -20,8 +20,8 @@ Find each in this order: this chat, the Project's docs, then ask in one short ro
 2. **The Brand Brain:** voice, banned words and formatting rules (many agents ban em dashes), colors, fonts, standard call to action, contact details, and the compliance section.
 3. **Files** (ask up front; hosted links usually can't be downloaded here):
    - a **headshot** (any photo of the agent works; you'll crop it to head and shoulders)
-   - their **logo** as a PNG, ideally a light version for the photo side and a dark version for the light side. If they only have one, make the other by recoloring it (keep the artwork exactly; only change its color).
-   - their **brokerage's logo** if the Brand Brain requires co-branding. If it's missing, the card shows a red "Add brokerage logo" box. Never type out a logo as text.
+   - their **co-branded lockup** (their logo, a divider and the brokerage's logo) if the Brand Brain requires co-branding. It goes on both sides: a light version on the photo side and the original on the light side. If they only have a dark one, make the light copy by recoloring it (keep the artwork exactly; only change its color) and mention it, in case the brokerage requires its logo in its own colors.
+   - Without a lockup: their **logo** (light and dark versions, made the same way) and the **brokerage's logo** as separate files. If the brokerage logo is missing, the card shows a red "Add brokerage logo" box. Never type out a logo as text.
    - a **front photo**: one of their own lifestyle or area photos, as large as they have. For print, 2,600 px wide or more is ideal; under about 1,600 px may look soft, so say so.
 4. **Mailing details**, if known: return address, and whether their print shop or mail house adds postage and addresses. Leave the return address off if the agent doesn't give one.
 
@@ -43,7 +43,7 @@ Find each in this order: this chat, the Project's docs, then ask in one short ro
    ```
    NODE_PATH=$(npm root -g) node scripts/render_postcard.js data.json <out dir> <fonts dir>
    ```
-4. **Look at all three previews.** Check that nothing is clipped, the stat labels fit, the headshot is well cropped, the logos sit clear of the postage area, and the address block is empty. Fix and re-render before delivering.
+4. **Look at all three previews.** The type is sized to read at arm's length; keep it that way. If something doesn't fit, shorten it (a shorter note, a shorter headline, short column labels) rather than shrinking the type. Check that nothing is clipped, the stat labels fit, the headshot is well cropped, the logos sit clear of the postage area, and the address block is empty. Fix and re-render before delivering.
 
 ### Data shape
 
@@ -52,7 +52,8 @@ Find each in this order: this chat, the Project's docs, then ask in one short ro
   "fileName": "Agent-Name-Market-Postcard-September-2026",
   "colors": {"bg": "#F3F0E9", "panel": "#D5C9B7", "accent": "#9A8D7E", "feature": "#4D5548", "ink": "#292C29", "on-dark": "#F3F0E9"},
   "fonts": {"serif": "Bodoni Moda", "sans": "Montserrat"},
-  "frontPhoto": "front.jpg", "logoOnDark": "logo-white.png", "logoOnLight": "logo-dark.png",
+  "frontPhoto": "front.jpg", "lockupOnDark": "lockup-white.png", "lockupOnLight": "lockup.png",
+  "logoOnDark": "logo-white.png", "logoOnLight": "logo-dark.png",
   "brokerLogo": "brokerage.png",
   "brokerLogoMissing": "Add brokerage logo",
   "kicker": "Inland North County Market Update", "month": "September 2026",
@@ -62,7 +63,7 @@ Find each in this order: this chat, the Project's docs, then ask in one short ro
   "headshot": "headshot.jpg", "headshotPosition": "50% 50%",
   "agentName": "…", "agentRole": "<business name>",
   "note": "…",
-  "columns": ["Community", "Median price", "vs. last year", "Days on market"],
+  "columns": ["Community", "Median price", "Change", "Days to sell"],
   "rows": [{"name": "Fallbrook", "median": "$982,000", "change": "+15%", "dir": "up", "dom": "58"}],
   "tableSource": "…",
   "ctaHead": "…", "ctaLine": "…", "contactLine": "(760) 420-4415  ·  name@email.com",
@@ -72,7 +73,7 @@ Find each in this order: this chat, the Project's docs, then ask in one short ro
 }
 ```
 
-Use only one of `brokerLogo` or `brokerLogoMissing`. Leave out what doesn't apply (no `brokerLogo` for an agent without co-branding, no `returnAddress` if none is given).
+With a lockup, use `lockupOnDark` and `lockupOnLight` and leave out the separate logo fields. Otherwise use `logoOnDark`/`logoOnLight` plus one of `brokerLogo` or `brokerLogoMissing`. Leave out what doesn't apply (no `brokerLogo` for an agent without co-branding, no `returnAddress` if none is given).
 
 ## Deliver
 

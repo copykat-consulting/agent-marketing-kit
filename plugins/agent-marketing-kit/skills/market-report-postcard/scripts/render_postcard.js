@@ -22,7 +22,7 @@ const tpl = path.join(__dirname, "..", "assets", "postcard.html");
 fs.mkdirSync(out, { recursive: true });
 const name = D.fileName || "Market-Report-Postcard";
 
-for (const k of ["frontPhoto", "headshot", "logoOnDark", "logoOnLight", "brokerLogo"]) {
+for (const k of ["frontPhoto", "headshot", "logoOnDark", "logoOnLight", "brokerLogo", "lockupOnDark", "lockupOnLight"]) {
   if (!D[k]) continue;
   const p = path.isAbsolute(D[k]) ? D[k] : path.join(base, D[k]);
   if (!fs.existsSync(p)) { console.error("Missing image for " + k + ": " + p); process.exit(1); }

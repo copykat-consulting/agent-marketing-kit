@@ -32,47 +32,49 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
 .front .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,30,27,.82) 0%,rgba(28,30,27,.62) 46%,rgba(28,30,27,.18) 100%)}
 .front .top{position:absolute;left:0;top:0;right:0;display:flex;justify-content:space-between;align-items:flex-start}
 .front .logo{height:.62in;width:auto}
-.front .kicker{font-size:8.5pt;font-weight:500;letter-spacing:.26em;text-transform:uppercase;text-align:right;line-height:1.7}
-.front .head{position:absolute;left:0;top:1.02in;width:5.3in}
+.front .lockup{height:.9in;width:auto;max-width:3.4in;object-fit:contain}
+.front .kicker{font-size:10.5pt;font-weight:500;letter-spacing:.26em;text-transform:uppercase;text-align:right;line-height:1.7}
+.front .head{position:absolute;left:0;top:1.2in;width:7.6in}
 .front .rule{width:.55in;height:1px;background:var(--panel);margin-bottom:.14in}
-.front h1{font-family:var(--serif);font-weight:400;font-size:30pt;line-height:1.06}
-.front .sub{margin-top:.12in;font-size:9.5pt;font-weight:300;line-height:1.55;max-width:4.1in;color:rgba(243,240,233,.9)}
-.front .stats{position:absolute;left:0;right:0;bottom:.3in;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:.22in}
+.front h1{font-family:var(--serif);font-weight:400;font-size:40pt;line-height:1.04}
+.front .sub{margin-top:.14in;font-size:12.5pt;font-weight:400;line-height:1.45;max-width:5.4in;color:rgba(243,240,233,.9)}
+.front .stats{position:absolute;left:0;right:0;bottom:.34in;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:.22in}
 .front .stat{border-top:1px solid rgba(213,201,183,.7);padding-top:.09in}
-.front .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:22pt;line-height:1}
-.front .stat span{display:block;margin-top:.06in;font-size:7.5pt;letter-spacing:.06em;line-height:1.4;color:rgba(243,240,233,.88)}
-.front .src{position:absolute;left:0;right:0;bottom:0;font-size:6.5pt;line-height:1.4;color:rgba(243,240,233,.75)}
+.front .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:25.5pt;line-height:1;white-space:nowrap}
+.front .stat span{display:block;margin-top:.07in;font-size:9.8pt;letter-spacing:.03em;line-height:1.35;color:rgba(243,240,233,.88)}
+.front .src{position:absolute;left:0;right:0;bottom:0;font-size:7.6pt;line-height:1.4;color:rgba(243,240,233,.75)}
 
 /* ---------- BACK ---------- */
 .back{background:var(--bg)}
-.back .left{position:absolute;left:0;top:0;bottom:0;width:4.35in;display:flex;flex-direction:column}
+.back .left{position:absolute;left:0;top:0;bottom:0;width:4.6in;display:flex;flex-direction:column}
 .back .who{display:flex;gap:.16in;align-items:center}
-.back .shot{width:.95in;height:.95in;border-radius:50%;object-fit:cover;flex:none;border:2px solid #fff;box-shadow:0 0 0 1px var(--panel)}
-.back .who h2{font-family:var(--serif);font-weight:400;font-size:15pt;line-height:1.1}
-.back .who .role{margin-top:.04in;font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500}
-.back .note{margin-top:.13in;font-size:8.6pt;line-height:1.5;font-weight:400}
-.back table{margin-top:.13in;width:100%;border-collapse:collapse;font-size:7.6pt}
-.back th{font-size:6.3pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark);background:var(--feature);text-align:right;padding:.045in .07in}
+.back .shot{width:.9in;height:.9in;border-radius:50%;object-fit:cover;flex:none;border:2px solid #fff;box-shadow:0 0 0 1px var(--panel)}
+.back .who h2{font-family:var(--serif);font-weight:400;font-size:19pt;line-height:1.1}
+.back .who .role{margin-top:.05in;font-size:8.2pt;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.back .note{margin-top:.1in;font-size:10pt;line-height:1.38;font-weight:400}
+.back table{margin-top:.1in;width:100%;border-collapse:collapse;font-size:9.4pt}
+.back th{font-size:7.4pt;font-weight:600;letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;color:var(--on-dark);background:var(--feature);text-align:right;padding:.05in .07in}
 .back th:first-child,.back td:first-child{text-align:left}
-.back td{padding:.045in .07in;text-align:right;border-bottom:1px solid var(--panel)}
+.back td{padding:.03in .07in;white-space:nowrap;text-align:right;border-bottom:1px solid var(--panel)}
 .back td:first-child{font-weight:600}
 .back td.up{color:var(--up);font-weight:600}.back td.dn{color:var(--down);font-weight:600}.back td.fl{color:var(--flat);font-weight:600}
-.back .tsrc{margin-top:.05in;font-size:6pt;line-height:1.35;color:#6f665b}
-.back .cta{margin-top:auto;display:flex;gap:.14in;align-items:center;background:var(--feature);color:var(--on-dark);padding:.11in .14in}
+.back .tsrc{margin-top:.05in;font-size:7pt;line-height:1.35;color:#6f665b}
+.back .cta{margin-top:auto;display:flex;gap:.14in;align-items:center;background:var(--feature);color:var(--on-dark);padding:.1in .16in}
 .back .cta .qr{width:.68in;height:.68in;background:#fff;padding:.03in;flex:none}
 .back .cta .qr svg,.back .cta .qr img{width:100%;height:100%;display:block}
-.back .cta b{display:block;font-family:var(--serif);font-weight:400;font-size:11.5pt;line-height:1.2}
-.back .cta span{display:block;margin-top:.04in;font-size:7.6pt;line-height:1.45}
-.back .right{position:absolute;right:0;top:0;bottom:0;width:3.4in}
+.back .cta b{display:block;font-family:var(--serif);font-weight:400;font-size:13pt;line-height:1.2}
+.back .cta span{display:block;margin-top:.04in;font-size:9.6pt;line-height:1.45}
+.back .right{position:absolute;right:0;top:0;bottom:0;width:3.25in}
 .back .brand{position:absolute;left:0;top:0;max-width:2.2in;display:flex;align-items:center;gap:.1in}
 .back .brand img{height:.42in;width:auto;max-width:1.05in;object-fit:contain}
+.back .brand .lockup{height:.72in;max-width:2.15in;width:auto;object-fit:contain}
 .back .brand .div{width:1px;height:.42in;background:var(--accent)}
 .back .brand .ph{height:.42in;max-width:1.05in;padding:0 .06in;text-align:center;line-height:1.3;display:flex;align-items:center;border:1px dashed #c33;color:#c33;font-size:6.5pt;letter-spacing:.06em;text-transform:uppercase}
 .back .postage{position:absolute;right:0;top:0;width:1in;height:.85in}
-.back .mail{position:absolute;right:0;bottom:.62in;width:3.25in;height:1.45in}
-.back .ret{position:absolute;left:0;top:.62in;font-size:6.8pt;line-height:1.45;color:#3f423d}
-.back .legal{position:absolute;left:0;right:0;bottom:0;display:flex;gap:.1in;align-items:flex-end;font-size:5.9pt;line-height:1.45;color:#3f423d}
-.back .legal svg{width:.32in;height:.32in;flex:none}
+.back .mail{position:absolute;right:0;bottom:.7in;width:3.25in;height:1.45in}
+.back .ret{position:absolute;left:0;top:.9in;font-size:8pt;line-height:1.45;color:#3f423d}
+.back .legal{position:absolute;left:0;right:0;bottom:0;display:flex;gap:.1in;align-items:flex-end;font-size:7.4pt;line-height:1.45;color:#3f423d}
+.back .legal svg{width:.4in;height:.4in;flex:none}
 .guides .back .postage{outline:1px dashed rgba(0,0,0,.35)}
 .guides .back .postage::after{content:"Postage / indicia";position:absolute;inset:0;display:grid;place-items:center;font-size:6pt;color:rgba(0,0,0,.45)}
 .guides .back .mail{outline:1px dashed rgba(0,0,0,.35)}
@@ -96,14 +98,14 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
     ${D.frontPhoto ? `<img class="photo" src="${esc(D.frontPhoto)}" alt="">` : ""}
     <div class="shade"></div>
     <div class="safe">
-      <div class="top">${D.logoOnDark ? `<img class="logo" src="${esc(D.logoOnDark)}" alt="">` : "<span></span>"}
+      <div class="top">${D.lockupOnDark ? `<img class="lockup" src="${esc(D.lockupOnDark)}" alt="">` : D.logoOnDark ? `<img class="logo" src="${esc(D.logoOnDark)}" alt="">` : "<span></span>"}
         <div class="kicker">${esc(D.kicker || "Market Update")}<br>${esc(D.month || "")}</div></div>
       <div class="head"><div class="rule"></div><h1>${esc(D.headline || "")}</h1>${D.subhead ? `<p class="sub">${esc(D.subhead)}</p>` : ""}</div>
       <div class="stats" style="--n:${stats.length || 1}">${stats.map((s) => `<div class="stat"><b>${esc(s.value)}</b><span>${esc(s.label)}</span></div>`).join("")}</div>
       <div class="src">${esc(D.source || "")}</div>
     </div></section>`;
   const rows = (D.rows || []).slice(0, 7);
-  const cols = D.columns || ["Community", "Median price", "vs. last year", "Days on market"];
+  const cols = D.columns || ["Community", "Median price", "Change", "Days to sell"];
   const back = `<section class="page back"><div class="safe">
     <div class="left">
       <div class="who">${D.headshot ? `<img class="shot" src="${esc(D.headshot)}" alt="" style="object-position:${esc(D.headshotPosition || "50% 25%")}">` : ""}
@@ -115,7 +117,7 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
       <div class="cta">${D.qrSvg ? `<div class="qr">${D.qrSvg}</div>` : ""}<div><b>${esc(D.ctaHead || "")}</b><span>${esc(D.ctaLine || "")}</span><span>${esc(D.contactLine || "")}</span></div></div>
     </div>
     <div class="right">
-      <div class="brand">${D.logoOnLight ? `<img src="${esc(D.logoOnLight)}" alt="">` : ""}${D.brokerLogo ? `<span class="div"></span><img src="${esc(D.brokerLogo)}" alt="">` : D.brokerLogoMissing ? `<span class="div"></span><span class="ph">${esc(D.brokerLogoMissing)}</span>` : ""}</div>
+      <div class="brand">${D.lockupOnLight ? `<img class="lockup" src="${esc(D.lockupOnLight)}" alt="">` : `${D.logoOnLight ? `<img src="${esc(D.logoOnLight)}" alt="">` : ""}${D.brokerLogo ? `<span class="div"></span><img src="${esc(D.brokerLogo)}" alt="">` : D.brokerLogoMissing ? `<span class="div"></span><span class="ph">${esc(D.brokerLogoMissing)}</span>` : ""}`}</div>
       <div class="postage"></div>
       ${D.returnAddress ? `<div class="ret">${(D.returnAddress || []).map(esc).join("<br>")}</div>` : ""}
       <div class="mail"></div>
